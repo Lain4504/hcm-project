@@ -17,7 +17,69 @@ import { Button } from "../components/ui/button";
 
     <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
       <a href="/" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trang chủ</a>
-      <a href="/timeline" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Timeline</a>
+      <div class="relative" data-timeline-desktop>
+        <a
+          href="/timeline"
+          data-timeline-toggle-desktop
+          class="flex items-center gap-1 text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors"
+        >
+          <span>Timeline</span>
+          <span class="text-[0.6rem] leading-none">▾</span>
+        </a>
+        <div
+          data-timeline-menu-desktop
+          class="invisible absolute left-0 top-full z-50 mt-2 min-w-[260px] rounded-xl border border-[color:var(--vn-yellow-soft)]/40 bg-[color:var(--vn-red-soft)]/95 text-[color:var(--vn-yellow-soft)] shadow-lg opacity-0 transition-opacity data-[open]:visible data-[open]:opacity-100"
+        >
+          <a
+            href="/timeline"
+            class="block border-b border-[color:var(--vn-yellow-soft)]/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-[color:var(--vn-yellow-soft)]/80 hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            Toàn bộ Timeline
+          </a>
+          <a
+            href="/timeline/1911-nguyen-ai-quoc-ra-di"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            1911 – Nguyễn Ái Quốc ra đi tìm đường cứu nước
+          </a>
+          <a
+            href="/timeline/1917-1920-tiep-xuc-mac-lenin"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            1917–1920 – Tiếp xúc chủ nghĩa Mác – Lênin
+          </a>
+          <a
+            href="/timeline/1920-chon-con-duong-vo-san"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            1920 – Chọn con đường cách mạng vô sản
+          </a>
+          <a
+            href="/timeline/1930-thanh-lap-dang-con-san-vn"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            1930 – Thành lập Đảng Cộng sản Việt Nam
+          </a>
+          <a
+            href="/timeline/1945-tuyen-ngon-doc-lap"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            1945 – Tuyên ngôn độc lập
+          </a>
+          <a
+            href="/timeline/1951-1969-phat-trien-tu-tuong"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            1951–1969 – Phát triển tư tưởng độc lập – CNXH – hội nhập
+          </a>
+          <a
+            href="/timeline/hien-nay-doc-lap-va-fdi"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            Hiện nay – Độc lập tự chủ và thu hút FDI
+          </a>
+        </div>
+      </div>
       <div class="relative" data-game-desktop>
         <button
           type="button"
@@ -46,7 +108,6 @@ import { Button } from "../components/ui/button";
         </div>
       </div>
       <a href="/ar-scan" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">AR Scan</a>
-      <a href="/ar" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trải nghiệm AR</a>
       <a href="/gallery" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Gallery 3D</a>
     </nav>
 
@@ -109,7 +170,6 @@ import { Button } from "../components/ui/button";
         </div>
       </div>
       <a href="/ar-scan" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">AR Scan</a>
-      <a href="/ar" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trải nghiệm AR</a>
       <a href="/gallery" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Gallery 3D</a>
     </div>
   </nav>
@@ -121,6 +181,8 @@ import { Button } from "../components/ui/button";
     const menu = document.querySelector('[data-mobile-nav]');
     const gameToggleDesktop = document.querySelector('[data-game-toggle-desktop]');
     const gameMenuDesktop = document.querySelector('[data-game-menu-desktop]');
+    const timelineToggleDesktop = document.querySelector('[data-timeline-toggle-desktop]');
+    const timelineMenuDesktop = document.querySelector('[data-timeline-menu-desktop]');
     const mobileGameToggle = document.querySelector('[data-mobile-game-toggle]');
     const mobileGameMenu = document.querySelector('[data-mobile-game-menu]');
 
@@ -147,6 +209,32 @@ import { Button } from "../components/ui/button";
       document.addEventListener('click', (event) => {
         if (!event.target.closest('[data-game-desktop]') && gameMenuDesktop.hasAttribute('data-open')) {
           gameMenuDesktop.removeAttribute('data-open');
+        }
+      });
+    }
+
+    if (timelineToggleDesktop && timelineMenuDesktop) {
+      const closeTimeline = () => {
+        timelineMenuDesktop.removeAttribute('data-open');
+      };
+
+      timelineToggleDesktop.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        if (timelineMenuDesktop.hasAttribute('data-open')) {
+          closeTimeline();
+        } else {
+          timelineMenuDesktop.setAttribute('data-open', '');
+        }
+      });
+
+      // Đóng menu Timeline khi click ra ngoài
+      document.addEventListener('click', (event) => {
+        if (
+          !event.target.closest('[data-timeline-desktop]') &&
+          timelineMenuDesktop.hasAttribute('data-open')
+        ) {
+          closeTimeline();
         }
       });
     }

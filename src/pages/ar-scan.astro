@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import qrHcm from '../assets/ar/ar_qr_code_hcm.png';
+import hcmImage from '../assets/ar/hcm_image.png';
 ---
 
 <BaseLayout title="AR Scan - Mô phỏng không gian HCM202">
@@ -23,9 +25,9 @@ import { Button } from '../components/ui/button';
   </section>
 
   <section class="bg-background">
-    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      <div class="mx-auto max-w-xl">
-        <Card class="border-[color:var(--vn-red-soft)]/25 bg-[color:var(--card)]">
+    <div class="mx-auto max-w-6xl px-2 py-6 md:px-4 md:py-14">
+      <div class="mx-auto w-full">
+        <Card class="w-full border-[color:var(--vn-red-soft)]/25 bg-[color:var(--card)] px-3 py-4 sm:px-5 sm:py-5">
           <CardHeader>
             <CardTitle class="text-base">2 bước để trải nghiệm AR</CardTitle>
           </CardHeader>
@@ -50,13 +52,35 @@ import { Button } from '../components/ui/button';
                   </p>
                 </div>
               </div>
-              <div class="flex flex-col items-center gap-3">
-                <div class="flex h-40 w-40 items-center justify-center rounded-xl border border-dashed border-[color:var(--vn-red-soft)] bg-[color:var(--vn-yellow-soft)]/35 text-[0.7rem] text-[color:var(--vn-red-soft)]">
-                  QR CODE<br />Dummy
+              <div class="flex flex-col items-center gap-4">
+                <div class="flex flex-col items-center gap-2">
+                  <div class="flex h-40 w-40 items-center justify-center overflow-hidden rounded-xl border border-[color:var(--vn-red-soft)] bg-background">
+                    <img
+                      src={qrHcm.src}
+                      alt="Mã QR mở trải nghiệm AR HCM202 trên điện thoại"
+                      class="h-full w-full object-contain p-2"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p class="text-[0.7rem] text-muted-foreground text-center">
+                    Dùng điện thoại quét mã QR này để mở trang
+                    <code class="ml-1 rounded bg-[color:var(--vn-yellow-soft)]/40 px-1 text-[0.7rem]">/ar</code>.
+                  </p>
                 </div>
-                <p class="text-[0.7rem] text-muted-foreground text-center">
-                  Bạn có thể thay thế bằng QR code thật trỏ tới đường dẫn <code class="rounded bg-[color:var(--vn-yellow-soft)]/40 px-1">/ar</code>.
-                </p>
+
+                <div class="flex flex-col items-center gap-2">
+                  <div class="flex max-h-56 w-full max-w-xs items-center justify-center overflow-hidden rounded-xl border border-[color:var(--vn-red-soft)]/40 bg-black/40">
+                    <img
+                      src={hcmImage.src}
+                      alt="Hình minh họa không gian AR HCM202 sau khi quét mã"
+                      class="h-full w-full object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p class="text-[0.7rem] text-muted-foreground text-center">
+                    Hình minh họa mô hình AR hiển thị trong không gian sau khi bạn quét mã QR.
+                  </p>
+                </div>
               </div>
             </div>
 

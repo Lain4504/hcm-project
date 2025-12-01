@@ -76,16 +76,29 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ entry, index }) => {
       ref={ref}
       className="relative grid grid-cols-1 items-center md:grid-cols-2 md:gap-16"
     >
-      {/* Time capsule anchored to the central line */}
-      <div className="pointer-events-none absolute left-1/2 top-4 z-20 -translate-x-1/2 md:top-1/2 md:-translate-y-1/2">
+      {/* Mobile: Dot marker on left timeline */}
+      <div className="pointer-events-none absolute left-[calc(1rem+1.5px)] top-6 z-20 -translate-x-1/2 md:hidden">
+        <div className="h-3 w-3 rounded-full border-2 border-[color:var(--vn-yellow-soft)] bg-[color:var(--vn-red-dark)] shadow-md" />
+      </div>
+      
+      {/* Mobile: Time capsule on left timeline */}
+      <div className="pointer-events-none absolute left-4 top-4 z-20 md:hidden">
+        <div className="ml-5 inline-flex items-center rounded-full border border-[color:var(--vn-yellow-soft)] bg-[color:var(--vn-red-dark)] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--vn-yellow-soft)] shadow-md">
+          {entry.date}
+        </div>
+      </div>
+
+      {/* Desktop: Time capsule anchored to the central line */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 md:block">
         <div className="inline-flex items-center rounded-full border border-[color:var(--vn-yellow-soft)] bg-[color:var(--vn-red-dark)] px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--vn-yellow-soft)] shadow-md">
           {entry.date}
         </div>
       </div>
 
-      {/* Left column card (desktop) / main card (mobile) */}
+      {/* Mobile: Content card on the right */}
+      {/* Desktop: Left column card */}
       {isLeft && (
-        <div className="md:pr-12">
+        <div className="ml-16 md:ml-0 md:pr-12">
           <article className={cardClasses}>
             <CardHeader className="flex flex-col gap-1 px-0 pb-3 pt-0">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--vn-red-soft)]/90">
@@ -110,9 +123,10 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ entry, index }) => {
         </div>
       )}
 
-      {/* Right column card (desktop) */}
+      {/* Mobile: Content card on the right */}
+      {/* Desktop: Right column card */}
       {!isLeft && (
-        <div className="md:col-start-2 md:pl-12">
+        <div className="ml-16 md:col-start-2 md:ml-0 md:pl-12">
           <article className={cardClasses}>
             <CardHeader className="flex flex-col gap-1 px-0 pb-3 pt-0">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--vn-red-soft)]/90">
