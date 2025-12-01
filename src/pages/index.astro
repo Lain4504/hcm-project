@@ -1,25 +1,168 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import { Button } from "@/components/ui/button"
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Button } from '../components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import content from '../data/content.json';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<BaseLayout title="Độc lập dân tộc – Con đường chủ nghĩa xã hội" description="Môn học HCM202: Tư tưởng Hồ Chí Minh về độc lập dân tộc gắn liền với chủ nghĩa xã hội.">
+  <section class="relative overflow-hidden bg-gradient-to-b from-sky-900 via-sky-950 to-background text-slate-50">
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(circle_at_50%_0,rgba(56,189,248,0.4),transparent_60%)]" />
+    <div class="container mx-auto flex flex-col gap-10 px-4 pb-24 pt-28 md:flex-row md:items-center">
+      <div class="relative z-10 max-w-xl space-y-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-300">
+          HCM202 · Tư tưởng Hồ Chí Minh
+        </p>
+        <h1 class="text-balance text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          Độc lập dân tộc
+          <span class="block text-sky-300">và con đường chủ nghĩa xã hội</span>
+        </h1>
+        <p class="max-w-lg text-sm text-sky-100/90 md:text-base">
+          “Tư tưởng Hồ Chí Minh đặt nền móng cho sự kết hợp giữa độc lập dân tộc và phát triển xã hội bền vững”.
+          Khám phá hành trình từ Nguyễn Ái Quốc ra đi tìm đường cứu nước đến Việt Nam hội nhập toàn cầu ngày nay.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button asChild size="lg">
+            <a href="/timeline">Xem Timeline HCM202</a>
+          </Button>
+          <Button asChild size="lg" variant="outline" class="border-sky-300/60 bg-sky-900/40 text-sky-50 hover:bg-sky-800">
+            <a href="/game">Vào Game trắc nghiệm</a>
+          </Button>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-6 text-xs text-sky-100/80">
+          <div>
+            <p class="text-lg font-semibold text-sky-300">7</p>
+            <p>mốc tư tưởng tiêu biểu</p>
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-sky-300">HCM202</p>
+            <p>gắn với thực tiễn đổi mới</p>
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-sky-300">Quiz</p>
+            <p>củng cố kiến thức môn học</p>
+          </div>
+        </div>
+      </div>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+      <div class="relative z-10 mt-4 flex flex-1 justify-center md:mt-0">
+        <div class="relative h-64 w-full max-w-md">
+          <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-sky-500/40 via-sky-400/20 to-emerald-400/40 blur-3xl" />
+          <Card class="relative h-full w-full overflow-hidden border-sky-400/30 bg-slate-950/60 shadow-[0_0_60px_rgba(56,189,248,0.35)]">
+            <CardHeader class="border-b border-sky-400/20 bg-slate-900/80">
+              <CardTitle class="flex items-center justify-between text-sm font-medium text-sky-100">
+                Độc lập dân tộc &amp; CNXH
+                <span class="rounded-full bg-sky-500/20 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-sky-200">
+                  HCM202
+                </span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="relative flex h-full flex-col justify-between bg-gradient-to-b from-slate-900/60 to-slate-950/80 p-4">
+              <div class="relative h-32 rounded-xl border border-sky-400/20 bg-[radial-gradient(circle_at_20%_0,rgba(56,189,248,0.5),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(45,212,191,0.4),transparent_60%)]">
+                <div class="absolute inset-x-6 bottom-4 flex items-end justify-between text-[0.6rem] text-sky-100">
+                  <span>1911</span>
+                  <span>1920</span>
+                  <span>1930</span>
+                  <span>1945</span>
+                </div>
+              </div>
+              <div class="mt-4 grid gap-2 text-[0.7rem] text-sky-100/90 md:grid-cols-3">
+                <div>
+                  <p class="font-semibold text-sky-200">Timeline</p>
+                  <p>Diễn biến từng ngày của chiến dịch.</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-sky-200">Game</p>
+                  <p>Thử thách kiến thức lịch sử hấp dẫn.</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-sky-200">AR</p>
+                  <p>Quan sát trận địa 3D ngay trên thiết bị.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background">
+    <div class="container mx-auto space-y-10 px-4 py-16 md:py-20">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+          {(content as any).hero.title}
+        </h2>
+        <p class="mt-2 text-sm font-medium text-sky-700 md:text-base">
+          {(content as any).hero.subtitle}
+        </p>
+        <p class="mt-3 text-sm text-muted-foreground md:text-base">
+          {(content as any).hero.description}
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {(content as any).sections.map((section: any) => (
+          <Card class="border-sky-100/40 bg-sky-50/40" key={section.id}>
+            <CardHeader>
+              <CardTitle class="text-base">{section.title}</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <p>{section.description}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <Card class="border-sky-100/40 bg-sky-50/40">
+          <CardHeader>
+            <CardTitle class="text-base">Timeline 57 ngày đêm</CardTitle>
+          </CardHeader>
+          <CardContent class="space-y-2 text-sm text-muted-foreground">
+            <p>
+              Theo dõi diễn biến từng giai đoạn của chiến dịch Điện Biên Phủ qua dòng thời gian trực quan, dễ hiểu.
+            </p>
+            <Button asChild size="sm" variant="outline">
+              <a href="/timeline">Xem Timeline</a>
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card class="border-emerald-100/40 bg-emerald-50/40">
+          <CardHeader>
+            <CardTitle class="text-base">Game hỏi đáp lịch sử</CardTitle>
+          </CardHeader>
+          <CardContent class="space-y-2 text-sm text-muted-foreground">
+            <p>
+              Trả lời câu hỏi, tích luỹ điểm số và thử thách bạn bè để xem ai hiểu rõ nhất về Điện Biên Phủ.
+            </p>
+            <Button asChild size="sm" variant="outline">
+              <a href="/game">Chơi ngay</a>
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card class="border-sky-100/40 bg-sky-50/40">
+          <CardHeader>
+            <CardTitle class="text-base">Trải nghiệm AR &amp; 3D</CardTitle>
+          </CardHeader>
+          <CardContent class="space-y-2 text-sm text-muted-foreground">
+            <p>
+              Quét mã QR để xem mô hình trận địa trong không gian thực, kết hợp cùng Gallery 3D chuyên sâu mà bạn đã có.
+            </p>
+            <div class="flex gap-2">
+              <Button asChild size="sm" variant="outline">
+                <a href="/ar-scan">Quét QR</a>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <a href="/gallery">Gallery 3D</a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

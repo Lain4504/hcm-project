@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import rawQuiz from '../data/quiz.json';
+import { Quiz } from '../components/Quiz';
+
+const quizData = (rawQuiz as any[]).map((q, index) => ({
+  id: index + 1,
+  question: q.question,
+  options: q.options,
+  correctIndex: q.answer
+}));
+---
+
+<BaseLayout title="Game HCM202 - Độc lập dân tộc và CNXH">
+  <section class="bg-gradient-to-b from-emerald-900 via-emerald-950 to-background text-emerald-50">
+    <div class="container mx-auto px-4 pb-10 pt-28 md:pb-14">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
+          Game tương tác
+        </p>
+        <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+          Tư tưởng Hồ Chí Minh về độc lập dân tộc và CNXH
+        </h1>
+        <p class="mt-3 max-w-xl text-sm text-emerald-100/90 md:text-base">
+          Khám phá quan điểm của Hồ Chí Minh về mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội. Liệu có mâu thuẫn
+          giữa mục tiêu độc lập, tự chủ với việc thu hút mạnh mẽ đầu tư nước ngoài? Hãy tham gia thử thách và tìm hiểu!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background">
+    <div class="container mx-auto px-4 py-10 md:py-14">
+      <Quiz client:load questions={quizData as any} />
+    </div>
+  </section>
+</BaseLayout>
+
+

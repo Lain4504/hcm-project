@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+---
+
+<BaseLayout title="Gallery 3D - Không gian HCM202">
+  <section class="bg-gradient-to-b from-sky-950 via-sky-950 to-background text-sky-50">
+    <div class="container mx-auto px-4 pb-10 pt-28 md:pb-14">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-sky-300">
+          Gallery 3D
+        </p>
+        <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+          Không gian 3D HCM202
+        </h1>
+        <p class="mt-3 max-w-xl text-sm text-sky-100/90 md:text-base">
+          Trang này đóng vai trò là cầu nối tới Gallery 3D mà bạn đã xây dựng sẵn, nay được sử dụng để trực quan hóa
+          các chủ đề của môn học HCM202: độc lập dân tộc, chủ nghĩa xã hội và hội nhập quốc tế.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background">
+    <div class="container mx-auto px-4 py-10 md:py-14">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <p class="text-sm text-muted-foreground">
+          Nhấn nút bên phải để chuyển tới Gallery 3D chính thức của bạn (cập nhật đường dẫn theo dự án thật).
+        </p>
+        <Button asChild size="sm">
+          <a href="/gallery3D" target="_self">Mở Gallery 3D</a>
+        </Button>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <Card class="overflow-hidden border-sky-100/60 bg-sky-50/60">
+          <div class="h-32 w-full bg-[url('/images/gallery/doc-lap.jpg')] bg-cover bg-center" />
+          <CardHeader>
+            <CardTitle class="text-sm">Không gian độc lập dân tộc</CardTitle>
+          </CardHeader>
+          <CardContent class="text-xs text-muted-foreground">
+            Mô phỏng các biểu tượng độc lập dân tộc và hành trình đi tìm đường cứu nước của Nguyễn Ái Quốc.
+          </CardContent>
+        </Card>
+
+        <Card class="overflow-hidden border-sky-100/60 bg-sky-50/60">
+          <div class="h-32 w-full bg-[url('/images/gallery/cnxh.jpg')] bg-cover bg-center" />
+          <CardHeader>
+            <CardTitle class="text-sm">Không gian chủ nghĩa xã hội</CardTitle>
+          </CardHeader>
+          <CardContent class="text-xs text-muted-foreground">
+            Minh họa các giá trị công bằng, dân chủ, văn minh và mục tiêu dân giàu, nước mạnh theo tư tưởng Hồ Chí Minh.
+          </CardContent>
+        </Card>
+
+        <Card class="overflow-hidden border-sky-100/60 bg-sky-50/60">
+          <div class="h-32 w-full bg-[url('/images/gallery/hoi-nhap.jpg')] bg-cover bg-center" />
+          <CardHeader>
+            <CardTitle class="text-sm">Không gian hội nhập và phát triển</CardTitle>
+          </CardHeader>
+          <CardContent class="text-xs text-muted-foreground">
+            Trình bày các trục nội dung về hội nhập quốc tế, thu hút FDI và phát triển bền vững gắn với giữ vững chủ quyền.
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+

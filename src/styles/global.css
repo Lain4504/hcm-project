@@ -42,72 +42,107 @@
 }
 
 :root {
+  /* Vietnam Red */
+  --vn-red: #D40000;
+  --vn-red-soft: #C21807;
+  --vn-red-light: #FF4D4D;
+  --vn-red-dark: #8B0000;
+
+  /* Vietnam Yellow */
+  --vn-yellow: #FFD700;
+  --vn-yellow-soft: #FFE680;
+  --vn-yellow-dark: #DAA520;
+
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Base colors */
+  --background: #FFF8F8;
+  --foreground: #330000;
+
+  --card: #FFF5F5;
+  --card-foreground: #330000;
+
+  --popover: #FFF8F8;
+  --popover-foreground: #330000;
+
+  --primary: var(--vn-red-soft);
+  --primary-foreground: #FFF8F0;
+
+  --secondary: #FDEDED;
+  --secondary-foreground: #660000;
+
+  --muted: #FDEDED;
+  --muted-foreground: #7A3A3A;
+
+  --accent: var(--vn-yellow-soft);
+  --accent-foreground: #4A2100;
+
+  --destructive: #8B0000;
+  --destructive-foreground: #FFECEC;
+
+  --border: #F2C2C2;
+  --input: #F2C2C2;
+  --ring: #D40000;
+
+  --chart-1: var(--vn-red-soft);
+  --chart-2: var(--vn-yellow);
+  --chart-3: #A52A2A;
+  --chart-4: #FF8C00;
+  --chart-5: #B22222;
+
+  --sidebar: #FFF5F5;
+  --sidebar-foreground: #330000;
+  --sidebar-primary: var(--vn-red-soft);
+  --sidebar-primary-foreground: #FFF8F0;
+  --sidebar-accent: var(--vn-yellow-soft);
+  --sidebar-accent-foreground: #4A2100;
+  --sidebar-border: #F2C2C2;
+  --sidebar-ring: #D40000;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #1A0000;
+  --foreground: #FFECEC;
+
+  --card: #260000;
+  --card-foreground: #FFECEC;
+
+  --popover: #260000;
+  --popover-foreground: #FFECEC;
+
+  --primary: #FF4D4D;
+  --primary-foreground: #330000;
+
+  --secondary: #330000;
+  --secondary-foreground: #FFECEC;
+
+  --muted: #330000;
+  --muted-foreground: #FFC6C6;
+
+  --accent: #DAA520;
+  --accent-foreground: #1A0000;
+
+  --destructive: #8B0000;
+  --destructive-foreground: #FFECEC;
+
+  --border: #4D0000;
+  --input: #4D0000;
+  --ring: #FF4D4D;
+
+  --chart-1: #FF4D4D;
+  --chart-2: #FFD700;
+  --chart-3: #FA8072;
+  --chart-4: #FFA500;
+  --chart-5: #FF6347;
+
+  --sidebar: #260000;
+  --sidebar-foreground: #FFECEC;
+  --sidebar-primary: #FF4D4D;
+  --sidebar-primary-foreground: #330000;
+  --sidebar-accent: #DAA520;
+  --sidebar-accent-foreground: #1A0000;
+  --sidebar-border: #4D0000;
+  --sidebar-ring: #FF4D4D;
 }
 
 @layer base {
@@ -116,5 +151,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'League Spartan Variable', sans-serif;
   }
 }

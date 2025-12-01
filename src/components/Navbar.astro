@@ -1,0 +1,61 @@
+---
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "../components/ui/navigation-menu";
+import { Button } from "../components/ui/button";
+---
+
+<header class="fixed inset-x-0 top-0 z-40 border-b border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)]/95 backdrop-blur">
+  <div class="container mx-auto flex h-16 items-center justify-between px-4">
+    <a href="/" class="flex items-center gap-2">
+      <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[color:var(--vn-yellow)] text-[#5C0000] font-bold">
+        HCM
+      </div>
+      <div class="flex flex-col">
+        <span class="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-[color:var(--vn-yellow-soft)]">HCM202</span>
+        <span class="text-xs text-[color:var(--vn-yellow-soft)]/85 leading-none">Tư tưởng Hồ Chí Minh</span>
+      </div>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
+      <a href="/" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trang chủ</a>
+      <a href="/timeline" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Timeline</a>
+      <a href="/game" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Game</a>
+      <a href="/ar-scan" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">AR Scan</a>
+      <a href="/ar" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trải nghiệm AR</a>
+      <a href="/gallery" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Gallery 3D</a>
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <Button asChild size="sm" variant="outline">
+        <a href="/timeline">Timeline HCM202</a>
+      </Button>
+      <Button asChild size="sm">
+        <a href="/game">Vào Game</a>
+      </Button>
+    </div>
+
+    <div class="flex items-center gap-2 md:hidden">
+      <Button variant="outline" size="icon" class="md:hidden" aria-label="Mở menu" onClick={() => {
+        const menu = document.querySelector('[data-mobile-nav]');
+        if (menu) menu.toggleAttribute('data-open');
+      }}>
+        <span class="i-lucide-menu h-5 w-5 text-[color:var(--vn-yellow-soft)]"></span>
+      </Button>
+    </div>
+  </div>
+
+  <nav
+    data-mobile-nav
+    class="md:hidden data-[open]:max-h-96 max-h-0 overflow-hidden border-t border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)]/98 backdrop-blur transition-[max-height] duration-300"
+  >
+    <div class="space-y-1 px-4 py-3 text-sm">
+      <a href="/" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trang chủ</a>
+      <a href="/timeline" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Timeline</a>
+      <a href="/game" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Game</a>
+      <a href="/ar-scan" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">AR Scan</a>
+      <a href="/ar" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trải nghiệm AR</a>
+      <a href="/gallery" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Gallery 3D</a>
+    </div>
+  </nav>
+</header>
+
+

@@ -9,15 +9,19 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        // Đỏ chủ đạo, hover pha nhẹ vàng
+        default:
+          "bg-primary text-primary-foreground shadow-sm hover:bg-[color-mix(in_srgb,var(--primary) 88%,var(--vn-yellow) 12%)]",
+        // Đỏ rất đậm cho destructive
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-destructive-foreground hover:bg-[color-mix(in_srgb,var(--destructive) 88%,var(--vn-yellow-dark) 12%)] focus-visible:ring-destructive/25 dark:focus-visible:ring-destructive/40",
+        // Viền vàng, nền sáng
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border border-[color:var(--accent)] bg-background shadow-xs text-[color:var(--foreground)] hover:bg-[color-mix(in_srgb,var(--accent) 10%,var(--background) 90%)] hover:text-[color:var(--accent-foreground)] dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_srgb,var(--secondary) 80%,#ffffff 20%)]",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "hover:bg-[color-mix(in_srgb,var(--vn-red-light) 12%,var(--background) 88%)] hover:text-[color:var(--foreground)]",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

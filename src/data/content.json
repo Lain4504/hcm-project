@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "title": "Độc lập dân tộc – Con đường chủ nghĩa xã hội",
+    "subtitle": "Tư tưởng Hồ Chí Minh về kết hợp độc lập dân tộc với phát triển xã hội bền vững",
+    "description": "Môn học HCM202 giúp người học hiểu rõ hành trình tư tưởng Hồ Chí Minh, từ đấu tranh giành độc lập đến xây dựng chủ nghĩa xã hội và hội nhập quốc tế."
+  },
+  "sections": [
+    {
+      "id": "hanh-trinh-tu-tuong",
+      "title": "Hành trình tư tưởng Hồ Chí Minh",
+      "description": "Theo dấu Nguyễn Ái Quốc từ năm 1911 ra đi tìm đường cứu nước đến quá trình tiếp thu chủ nghĩa Mác – Lênin và lựa chọn con đường cách mạng vô sản.",
+      "image": "/images/content/hcm-hanh-trinh.jpg"
+    },
+    {
+      "id": "doc-lap-gan-voi-cnxh",
+      "title": "Độc lập dân tộc gắn với CNXH",
+      "description": "Phân tích tư tưởng Hồ Chí Minh về mối quan hệ giữa độc lập dân tộc, xây dựng Đảng Cộng sản Việt Nam và mục tiêu chủ nghĩa xã hội.",
+      "image": "/images/content/hcm-doc-lap-cnxh.jpg"
+    },
+    {
+      "id": "hoi-nhap-va-phat-trien",
+      "title": "Hội nhập và phát triển bền vững",
+      "description": "Tìm hiểu cách vận dụng tư tưởng Hồ Chí Minh trong bối cảnh hiện nay: độc lập, tự chủ gắn với hội nhập quốc tế và thu hút đầu tư nước ngoài.",
+      "image": "/images/content/hcm-hoi-nhap.jpg"
+    }
+  ],
+  "1911-nguyen-ai-quoc-ra-di": {
+    "title": "1911 – Nguyễn Ái Quốc ra đi tìm đường cứu nước",
+    "image": "/images/hcm/1911.jpg",
+    "paragraphs": [
+      "Năm 1911, khi đất nước Việt Nam đang bị thực dân Pháp đô hộ, Nguyễn Ái Quốc – một thanh niên yêu nước – quyết định rời bỏ quê hương, bắt đầu hành trình tìm con đường cứu nước. Trong bối cảnh nhân dân đói khổ, phong trào chống Pháp manh mún, sự ra đi của Người đánh dấu một bước ngoặt quan trọng trong lịch sử cách mạng Việt Nam.",
+      "Nguyễn Ái Quốc đi qua nhiều quốc gia như Pháp, Anh, Hoa Kỳ, Trung Quốc và các nước Đông Nam Á. Tại mỗi nơi, Người quan sát tình hình xã hội, lao động kiếm sống và tiếp xúc trực tiếp với phong trào công nhân, các tổ chức cách mạng cũng như phong trào giải phóng dân tộc.",
+      "Những trải nghiệm đó giúp Người nhận ra rằng giải phóng dân tộc không chỉ là giành độc lập chính trị mà còn cần xây dựng một xã hội công bằng, nơi mọi người được hưởng quyền lợi bình đẳng.",
+      "Nguyễn Ái Quốc đã học hỏi cách tổ chức phong trào, ghi chép tỉ mỉ về các phương pháp đấu tranh, từ đó hình thành nhận thức rằng việc kết hợp đấu tranh giành độc lập dân tộc với cải tạo xã hội là con đường đúng đắn cho Việt Nam.",
+      "Hành trình ra đi năm 1911 đặt nền móng cho tư tưởng Hồ Chí Minh về độc lập dân tộc gắn với chủ nghĩa xã hội, thể hiện tinh thần kiên trì, nhạy bén trong việc tìm kiếm con đường cứu nước đúng đắn."
+    ]
+  },
+  "1917-1920-tiep-xuc-mac-lenin": {
+    "title": "1917–1920 – Tiếp xúc chủ nghĩa Mác – Lênin",
+    "image": "/images/hcm/1917-1920.jpg",
+    "paragraphs": [
+      "Trong những năm 1917–1920, Nguyễn Ái Quốc sinh sống tại Pháp và Liên Xô, tiếp xúc trực tiếp với phong trào công nhân và nghiên cứu học thuyết Mác – Lênin. Đây là giai đoạn quan trọng, giúp Người định hình con đường cách mạng Việt Nam.",
+      "Nguyễn Ái Quốc quan sát các phong trào công nhân và cách mạng ở châu Âu, nhận thấy rằng các dân tộc bị áp bức chỉ có thể giành độc lập nếu lực lượng công nhân và nông dân giác ngộ và giữ vai trò lãnh đạo.",
+      "Người nghiên cứu các lý luận Mác – Lênin về mối quan hệ giữa đấu tranh giai cấp và giải phóng dân tộc, từ đó nhận ra rằng cách mạng vô sản là con đường duy nhất để giành độc lập thực sự cho Việt Nam.",
+      "Những nghiên cứu và quan sát này củng cố nhận thức rằng giải phóng dân tộc phải đi đôi với việc xây dựng xã hội công bằng, đặt nền tảng cho tư tưởng Hồ Chí Minh về kết hợp độc lập dân tộc với chủ nghĩa xã hội.",
+      "Giai đoạn 1917–1920 là bước ngoặt tư tưởng quan trọng, giúp Hồ Chí Minh xác định con đường cách mạng lâu dài, đồng thời định hình chiến lược phát triển đất nước sau này."
+    ]
+  },
+  "1920-chon-con-duong-vo-san": {
+    "title": "1920 – Chọn con đường cách mạng vô sản",
+    "image": "/images/hcm/1920.jpg",
+    "paragraphs": [
+      "Năm 1920, tại Đại hội Quốc tế Cộng sản, Nguyễn Ái Quốc quyết định từ chối con đường cứu nước theo khuynh hướng tư sản, chính thức lựa chọn chủ nghĩa Mác – Lênin làm kim chỉ nam cho cách mạng Việt Nam.",
+      "Quyết định này đánh dấu bước ngoặt chiến lược, mở ra hướng đi mới cho cách mạng Việt Nam. Người bắt đầu vận dụng lý luận cách mạng vô sản vào điều kiện cụ thể của Việt Nam, nhằm giành độc lập dân tộc đồng thời cải tạo xã hội theo hướng công bằng.",
+      "Hồ Chí Minh nhận thức rằng nếu chỉ tập trung vào độc lập chính trị mà bỏ qua cải tạo xã hội, thì chiến thắng sẽ không bền vững. Từ đây, tư tưởng về sự kết hợp giữa giải phóng dân tộc và chủ nghĩa xã hội từng bước hình thành.",
+      "Bước ngoặt năm 1920 xác lập nền tảng tư tưởng quan trọng cho cách mạng Việt Nam, đặt ra con đường chiến lược mà Hồ Chí Minh theo đuổi suốt đời."
+    ]
+  },
+  "1930-thanh-lap-dang-cong-san-vn": {
+    "title": "1930 – Thành lập Đảng Cộng sản Việt Nam",
+    "image": "/images/hcm/1930.jpg",
+    "paragraphs": [
+      "Ngày 3/2/1930, Đảng Cộng sản Việt Nam được thành lập, thống nhất các tổ chức cộng sản rải rác trên cả nước. Đây là bước ngoặt về mặt chính trị và tổ chức, mở ra thời kỳ cách mạng mới cho dân tộc Việt Nam.",
+      "Việc thành lập Đảng không chỉ tạo ra một lực lượng chính trị tập trung, vững chắc mà còn cho phép Hồ Chí Minh lãnh đạo toàn dân trong cuộc đấu tranh giành độc lập.",
+      "Đảng Cộng sản Việt Nam trở thành công cụ chính trị quan trọng, tập hợp lực lượng công nhân, nông dân và trí thức vào một hướng đi chung, định hình phương pháp cách mạng phù hợp với hoàn cảnh Việt Nam.",
+      "Sự kiện 1930 là tiền đề để Hồ Chí Minh triển khai các chính sách cách mạng, khẳng định vai trò lãnh đạo của Đảng trong việc đưa Việt Nam đi đúng hướng: vừa giành độc lập vừa xây dựng xã hội công bằng theo định hướng xã hội chủ nghĩa."
+    ]
+  },
+  "1945-tuyen-ngon-doc-lap": {
+    "title": "1945 – Tuyên ngôn độc lập",
+    "image": "/images/hcm/1945.jpg",
+    "paragraphs": [
+      "Ngày 2/9/1945, tại Quảng trường Ba Đình, Hồ Chí Minh đọc Tuyên ngôn độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa. Đây là một cột mốc lịch sử trọng đại, đưa dân tộc Việt Nam từ thân phận nô lệ lên địa vị một quốc gia độc lập.",
+      "Tuyên ngôn độc lập khẳng định chủ quyền dân tộc, đồng thời thể hiện quyết tâm xây dựng một xã hội công bằng, dân chủ. Hồ Chí Minh nhấn mạnh rằng độc lập dân tộc phải đi đôi với cải cách xã hội để đảm bảo mọi người dân được hưởng quyền tự do và bình đẳng.",
+      "Sự kiện này đánh dấu thắng lợi của phong trào cách mạng Việt Nam, nhưng đồng thời mở ra thách thức: phải xây dựng một xã hội mới, bền vững và công bằng.",
+      "Tuyên ngôn độc lập không chỉ là sự kiện chính trị mà còn là biểu tượng của tư tưởng Hồ Chí Minh: độc lập dân tộc gắn liền với chủ nghĩa xã hội, mở ra hướng đi mới cho dân tộc Việt Nam."
+    ]
+  },
+  "1951-1969-phat-trien-tu-tuong": {
+    "title": "1951–1969 – Phát triển tư tưởng độc lập – CNXH – hội nhập",
+    "image": "/images/hcm/1951-1969.jpg",
+    "paragraphs": [
+      "Từ năm 1951 đến 1969, Hồ Chí Minh tiếp tục phát triển tư tưởng, nhấn mạnh rằng việc xây dựng chủ nghĩa xã hội ở Việt Nam phải dựa trên nền tảng độc lập dân tộc và đồng thời chủ động hội nhập quốc tế.",
+      "Người khuyến khích hợp tác với các nước xã hội chủ nghĩa, học hỏi kinh nghiệm quản lý và phát triển nhưng luôn giữ vững chủ quyền quốc gia.",
+      "Tư tưởng này định hướng cho việc vừa bảo vệ độc lập, vừa phát triển kinh tế – xã hội, đảm bảo đất nước đi đúng hướng cách mạng, không bị lệ thuộc ngoại bang.",
+      "Hồ Chí Minh nhấn mạnh sự cân bằng giữa nội lực và ngoại lực, giữa chủ quyền và hợp tác quốc tế, thể hiện tầm nhìn chiến lược dài hạn.",
+      "Giai đoạn này củng cố tư tưởng độc lập dân tộc gắn với chủ nghĩa xã hội và đặt nền tảng cho chiến lược phát triển lâu dài của Việt Nam trong bối cảnh hội nhập quốc tế."
+    ]
+  },
+  "hien-nay-doc-lap-va-fdi": {
+    "title": "Hiện nay – Độc lập tự chủ và thu hút FDI",
+    "image": "/images/hcm/hien-nay.jpg",
+    "paragraphs": [
+      "Trong thời kỳ hội nhập toàn cầu, Việt Nam phát triển kinh tế, thu hút đầu tư nước ngoài nhưng vẫn giữ vững chủ quyền quốc gia. Điều này phản ánh tư tưởng Hồ Chí Minh về độc lập dân tộc gắn với chủ nghĩa xã hội, được vận dụng trong bối cảnh mới.",
+      "Việc thu hút FDI và hợp tác quốc tế không làm suy yếu chủ quyền mà trở thành công cụ phát triển bền vững. Việt Nam tận dụng nguồn lực quốc tế để phát triển kinh tế, nâng cao đời sống nhân dân.",
+      "Đồng thời, đất nước vẫn giữ vững định hướng xã hội công bằng và dân chủ. Tư tưởng Hồ Chí Minh vẫn được thể hiện rõ: hội nhập không mâu thuẫn với độc lập, mà là cách thức thực hiện độc lập hiệu quả trong thế kỷ XXI.",
+      "Từ Nguyễn Ái Quốc ra đi tìm đường cứu nước đến Việt Nam hội nhập toàn cầu ngày nay, tư tưởng Hồ Chí Minh về độc lập dân tộc gắn với chủ nghĩa xã hội vẫn là kim chỉ nam, dẫn dắt Việt Nam đi từ đấu tranh giành độc lập đến xây dựng một xã hội phát triển bền vững."
+    ]
+  }
+}
+

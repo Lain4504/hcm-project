@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import timelineData from '../../data/timeline.json';
+import contentData from '../../data/content.json';
+import { Button } from '../../components/ui/button';
+
+const { slug } = Astro.params;
+const entries = timelineData as any[];
+const entry = entries.find((e) => e.slug === slug);
+const contentMap = contentData as any;
+const article = entry ? contentMap[entry.id] : null;
+
+if (!entry || !article) {
+  throw new Error(`Timeline entry or content not found for slug: ${slug}`);
+}
+---
+
+<BaseLayout title={entry.title}>
+  <section class="bg-gradient-to-b from-sky-950 via-sky-950 to-background text-sky-50">
+    <div class="container mx-auto px-4 pb-10 pt-28 md:pb-14">
+      <Button asChild size="sm" variant="outline" class="mb-4 border-sky-300/60 bg-sky-950/60 text-sky-100 hover:bg-sky-900">
+        <a href="/timeline">← Quay lại Timeline</a>
+      </Button>
+      <div class="grid gap-6 md:grid-cols-[3fr,2fr] md:items-start">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-sky-300">
+            {entry.date}
+          </p>
+          <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+            {entry.title}
+          </h1>
+          <p class="mt-3 max-w-2xl text-sm text-sky-100/90 md:text-base">
+            {entry.short}
+          </p>
+        </div>
+        {article.image && (
+          <div class="overflow-hidden rounded-2xl border border-sky-400/40 bg-slate-900/80 shadow-[0_0_40px_rgba(56,189,248,0.35)]">
+            <img
+              src={article.image}
+              alt={entry.title}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background">
+    <div class="container mx-auto grid gap-8 px-4 py-12 md:grid-cols-[3fr,2fr] md:py-16">
+      <article class="prose prose-sm max-w-none text-foreground prose-p:mb-4 prose-p:mt-0 prose-headings:mt-6 prose-headings:mb-3 prose-strong:text-foreground">
+        {article.paragraphs?.map((paragraph: string, idx: number) => (
+          <p key={idx}>{paragraph}</p>
+        ))}
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+
