@@ -25,27 +25,44 @@ import { Button } from "../components/ui/button";
     </nav>
 
     <div class="hidden md:flex items-center gap-3">
-      <Button asChild size="sm" variant="outline">
-        <a href="/timeline">Timeline HCM202</a>
+      <Button
+        asChild
+        size="sm"
+        variant="outline"
+        class="border-[color:var(--vn-yellow-soft)]/80 bg-transparent text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)] hover:text-[#5C0000]"
+      >
+        <a href="/timeline" class="text-[color:var(--vn-yellow-soft)]">Timeline HCM202</a>
       </Button>
-      <Button asChild size="sm">
-        <a href="/game">Vào Game</a>
+      <Button asChild size="sm" class="text-[color:var(--vn-yellow-soft)] hover:text-[#5C0000]">
+        <a href="/game" class="text-[color:var(--vn-yellow-soft)]">Vào Game</a>
       </Button>
     </div>
 
     <div class="flex items-center gap-2 md:hidden">
-      <Button variant="outline" size="icon" class="md:hidden" aria-label="Mở menu" onClick={() => {
-        const menu = document.querySelector('[data-mobile-nav]');
-        if (menu) menu.toggleAttribute('data-open');
-      }}>
-        <span class="i-lucide-menu h-5 w-5 text-[color:var(--vn-yellow-soft)]"></span>
+      <Button
+        variant="outline"
+        size="icon"
+        class="md:hidden border-[color:var(--vn-yellow-soft)]/80 bg-transparent text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)] hover:text-[#5C0000]"
+        aria-label="Mở menu"
+        data-menu-toggle
+      >
+        <svg
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
       </Button>
     </div>
   </div>
 
   <nav
     data-mobile-nav
-    class="md:hidden data-[open]:max-h-96 max-h-0 overflow-hidden border-t border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)]/98 backdrop-blur transition-[max-height] duration-300"
+    class="md:hidden max-h-0 data-[open]:max-h-96 overflow-hidden border-t border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)] text-[color:var(--vn-yellow-soft)] backdrop-blur transition-[max-height] duration-300"
   >
     <div class="space-y-1 px-4 py-3 text-sm">
       <a href="/" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trang chủ</a>
@@ -57,5 +74,22 @@ import { Button } from "../components/ui/button";
     </div>
   </nav>
 </header>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const toggle = document.querySelector('[data-menu-toggle]');
+    const menu = document.querySelector('[data-mobile-nav]');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        if (menu.hasAttribute('data-open')) {
+          menu.removeAttribute('data-open');
+        } else {
+          menu.setAttribute('data-open', '');
+        }
+      });
+    }
+  }
+</script>
 
 

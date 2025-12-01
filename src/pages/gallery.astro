@@ -28,8 +28,23 @@ import { Button } from '../components/ui/button';
         <p class="text-sm text-muted-foreground">
           Nhấn nút bên phải để chuyển tới Gallery 3D chính thức của bạn (cập nhật đường dẫn theo dự án thật).
         </p>
-        <Button asChild size="sm">
-          <a href="/gallery3D" target="_self">Mở Gallery 3D</a>
+        <Button
+          asChild
+          size="sm"
+          variant="outline"
+          class="group border-[color:var(--vn-yellow-soft)]/80 bg-[#260000]/90 text-[color:var(--vn-yellow-soft)] shadow-[0_0_25px_rgba(218,165,32,0.45)] transition-all hover:-translate-y-[1px] hover:border-[color:var(--vn-yellow)] hover:bg-[#3a0000] hover:shadow-[0_0_40px_rgba(255,215,0,0.7)]"
+        >
+          <a
+            href="https://virtual-art-gallery-chi.vercel.app/build.html"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-2"
+          >
+            <span>Mở Gallery 3D</span>
+            <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              ↗
+            </span>
+          </a>
         </Button>
       </div>
 
