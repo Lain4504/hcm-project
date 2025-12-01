@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import tthcm from '../assets/30.11tt-hcm.jpg';
+---
+
+<BaseLayout title="Sử Dụng AI - HCM202" description="Báo cáo minh bạch về việc sử dụng công cụ AI trong dự án HCM202: Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội.">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-[#050000] text-[color:var(--vn-yellow-soft)]">
+    <div class="pointer-events-none absolute inset-0">
+      <img 
+        src={tthcm.src}
+        alt="Tư tưởng Hồ Chí Minh" 
+        class="h-full w-full object-cover opacity-60"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
+    </div>
+    
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-28 md:pb-20">
+      <div class="mx-auto max-w-3xl text-center space-y-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-[color:var(--vn-yellow-soft)]/90">
+          HCM202 · Minh Bạch AI
+        </p>
+        <h1 class="text-balance text-3xl font-bold leading-tight tracking-tight text-[color:var(--vn-yellow-soft)] sm:text-4xl lg:text-5xl">
+          Sử Dụng AI
+        </h1>
+        <p class="mx-auto max-w-2xl text-sm text-[color:var(--vn-yellow-soft)]/90 md:text-base leading-relaxed">
+          Công cụ AI hỗ trợ học tập - Báo cáo minh bạch về việc sử dụng AI trong dự án HCM202
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="bg-background">
+    <div class="mx-auto max-w-6xl space-y-12 px-4 py-16 md:py-20">
+      
+      <!-- 1. CÔNG CỤ ĐÃ SỬ DỤNG -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            1. CÔNG CỤ ĐÃ SỬ DỤNG
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Các công cụ AI được sử dụng trong quá trình phát triển dự án
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base flex items-center gap-2">
+                <span class="text-lg">🤖</span>
+                ChatGPT
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="text-sm text-muted-foreground">
+              <p>Hỗ trợ phân tích và tóm tắt nội dung</p>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base flex items-center gap-2">
+                <span class="text-lg">🎨</span>
+                Claude AI
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="text-sm text-muted-foreground">
+              <p>Hỗ trợ viết code và thiết kế giao diện</p>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base flex items-center gap-2">
+                <span class="text-lg">💬</span>
+                Cursor AI
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="text-sm text-muted-foreground">
+              <p>Hỗ trợ lập trình và phát triển website</p>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base flex items-center gap-2">
+                <span class="text-lg">📝</span>
+                GitHub Copilot
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="text-sm text-muted-foreground">
+              <p>Hỗ trợ viết code và tối ưu hóa</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <!-- 2. MỤC ĐÍCH SỬ DỤNG -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            2. MỤC ĐÍCH SỬ DỤNG
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Mục đích và cách thức sử dụng từng công cụ AI
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base">ChatGPT</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Hỗ trợ đọc hiểu và tóm tắt giáo trình Tư tưởng Hồ Chí Minh (HCM202)</li>
+                <li>Phân tích nội dung các mốc timeline, trích lọc các ý chính</li>
+                <li>Hỗ trợ lên nội dung và dựng kịch bản cho các trang timeline</li>
+                <li>Tạo câu hỏi quiz dựa trên nội dung giáo trình</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base">Claude AI</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Hỗ trợ thiết kế cấu trúc website và giao diện người dùng</li>
+                <li>Đề xuất màu sắc, bố cục phù hợp với chủ đề lịch sử</li>
+                <li>Hỗ trợ viết code React/Astro components</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base">Cursor AI</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Hỗ trợ lập trình các tính năng: Timeline, Quiz, Puzzle, AR</li>
+                <li>Debug và sửa lỗi code</li>
+                <li>Tối ưu hóa hiệu suất website</li>
+                <li>Hỗ trợ tích hợp các thư viện và API</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base">GitHub Copilot</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Hỗ trợ viết code nhanh hơn với autocomplete</li>
+                <li>Đề xuất các pattern code tốt nhất</li>
+                <li>Hỗ trợ refactor code</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <!-- 3. PROMPT CHÍNH ĐÃ DÙNG -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            3. PROMPT CHÍNH ĐÃ DÙNG
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Các prompt chính được sử dụng để tương tác với AI
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <details class="group rounded-lg border border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <summary class="cursor-pointer px-6 py-4 text-base font-semibold text-foreground hover:bg-[color:var(--vn-red-soft)]/5 transition-colors list-none">
+              <div class="flex items-center justify-between">
+                <span>ChatGPT Prompts</span>
+                <span class="text-xs text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+              </div>
+            </summary>
+            <div class="px-6 pb-4 text-sm text-muted-foreground space-y-2">
+              <ul class="list-disc list-inside space-y-2 ml-2">
+                <li>"Dựa trên giáo trình Tư tưởng Hồ Chí Minh (HCM202), hãy liệt kê các mốc thời gian quan trọng từ năm 1911 đến hiện tại và tóm tắt nội dung từng mốc."</li>
+                <li>"Hãy phân tích mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh."</li>
+                <li>"Dựa trên nội dung các mốc timeline, hãy tạo 10 câu hỏi trắc nghiệm phù hợp với môn học HCM202."</li>
+                <li>"Viết nội dung mô tả ngắn gọn cho từng mốc timeline, đảm bảo truyền tải đúng kiến thức trọng tâm."</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="group rounded-lg border border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <summary class="cursor-pointer px-6 py-4 text-base font-semibold text-foreground hover:bg-[color:var(--vn-red-soft)]/5 transition-colors list-none">
+              <div class="flex items-center justify-between">
+                <span>Claude AI Prompts</span>
+                <span class="text-xs text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+              </div>
+            </summary>
+            <div class="px-6 pb-4 text-sm text-muted-foreground space-y-2">
+              <ul class="list-disc list-inside space-y-2 ml-2">
+                <li>"Thiết kế một website về tư tưởng Hồ Chí Minh với màu sắc đỏ và vàng (màu cờ Việt Nam), giao diện trang trọng, phù hợp với chủ đề lịch sử."</li>
+                <li>"Tạo component React cho timeline với các tính năng: hiển thị mốc thời gian, mô tả, hình ảnh."</li>
+                <li>"Viết code Astro cho trang timeline với layout responsive, sử dụng Tailwind CSS."</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="group rounded-lg border border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <summary class="cursor-pointer px-6 py-4 text-base font-semibold text-foreground hover:bg-[color:var(--vn-red-soft)]/5 transition-colors list-none">
+              <div class="flex items-center justify-between">
+                <span>Cursor AI Prompts</span>
+                <span class="text-xs text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+              </div>
+            </summary>
+            <div class="px-6 pb-4 text-sm text-muted-foreground space-y-2">
+              <ul class="list-disc list-inside space-y-2 ml-2">
+                <li>"Tạo component Quiz với React, có tính năng chọn đáp án, hiển thị kết quả, tính điểm."</li>
+                <li>"Tích hợp AR viewer vào website Astro, sử dụng thư viện AR.js hoặc tương tự."</li>
+                <li>"Tạo game puzzle với React, cho phép người chơi ghép hình ảnh về Điện Biên Phủ."</li>
+                <li>"Sửa lỗi: [mô tả lỗi cụ thể]"</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 4. KẾT QUẢ AI ĐÃ SINH RA -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            4. KẾT QUẢ AI ĐÃ SINH RA
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Các sản phẩm và output do AI tạo ra
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base">ChatGPT Outputs</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Danh sách 7 mốc timeline chính từ 1911 đến hiện tại</li>
+                <li>Tóm tắt nội dung từng mốc timeline, cô đọng các luận điểm quan trọng</li>
+                <li>Bảng tổng hợp từ khóa kiến thức chính của từng mốc</li>
+                <li>Dàn ý và nội dung mô tả cho các trang timeline</li>
+                <li>Bộ câu hỏi quiz ban đầu (sau đó được chỉnh sửa và bổ sung)</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+            <CardHeader>
+              <CardTitle class="text-base">Claude & Cursor Outputs</CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-2 text-sm text-muted-foreground">
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Code components: TimelineList, Quiz, PuzzleBoard, ARViewer</li>
+                <li>Layout và styling với Tailwind CSS</li>
+                <li>Cấu trúc thư mục và routing cho Astro</li>
+                <li>Code xử lý logic cho game puzzle và quiz</li>
+                <li>Code tích hợp AR scanning</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <!-- 5. PHẦN NHÓM CHỈNH SỬA/BIÊN SOẠN -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            5. PHẦN NHÓM CHỈNH SỬA/BIÊN SOẠN
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Công việc chỉnh sửa, biên soạn và phát triển của nhóm
+          </p>
+        </div>
+
+        <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+          <CardContent class="pt-6 space-y-4 text-sm text-muted-foreground">
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Chọn lọc và biên tập nội dung từ ChatGPT</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Sắp xếp lại bố cục timeline cho mạch lạc, dễ hiểu, lược bỏ các ý thừa, giữ lại nội dung cần thiết</li>
+                <li>Biên soạn lại nội dung từ bản nháp AI: viết lại mô tả, phân đoạn, câu chuyển mạch lạc</li>
+                <li>Bổ sung ví dụ, tình huống minh họa để tăng tính thực tiễn và sinh động cho nội dung</li>
+                <li>Kiểm tra và chỉnh sửa các câu hỏi quiz để đảm bảo độ chính xác và phù hợp với môn học</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Phát triển và tùy chỉnh code</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Chỉnh sửa và tùy chỉnh các component code từ AI để phù hợp với yêu cầu dự án</li>
+                <li>Thêm các tính năng: responsive design, animation, tối ưu hiệu suất</li>
+                <li>Tích hợp dữ liệu từ JSON files (timeline.json, quiz.json, puzzles.json)</li>
+                <li>Thiết kế và chỉnh sửa UI/UX: màu sắc, typography, spacing, layout</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Thiết kế & trình bày</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Lựa chọn và chỉnh sửa hình ảnh minh họa cho các mốc timeline</li>
+                <li>Thiết kế giao diện: màu sắc (đỏ-vàng), bố cục, hiệu ứng để tăng tính trực quan</li>
+                <li>Tạo và tối ưu hóa các assets: favicon, images, AR markers</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Tối ưu hóa và hoàn thiện</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Test và debug toàn bộ website, đảm bảo các tính năng hoạt động đúng</li>
+                <li>Tối ưu hóa performance: lazy loading, code splitting, image optimization</li>
+                <li>Đảm bảo responsive trên mọi thiết bị (mobile, tablet, desktop)</li>
+                <li>Phân công thành viên: mỗi người phụ trách một phần (timeline, quiz, puzzle, AR)</li>
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <!-- 6. ĐỐI CHIẾU NGUỒN CHÍNH THỐNG -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            6. ĐỐI CHIẾU NGUỒN CHÍNH THỐNG
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Kiểm chứng thông tin AI bằng giáo trình và nguồn chính thống
+          </p>
+        </div>
+
+        <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+          <CardContent class="pt-6 space-y-4 text-sm text-muted-foreground">
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Kiểm tra nội dung AI</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Soát lỗi chính tả, thuật ngữ học thuật, ngữ pháp trong tất cả nội dung</li>
+                <li>Đối chiếu nội dung timeline với giáo trình Tư tưởng Hồ Chí Minh (HCM202)</li>
+                <li>Bổ sung luận điểm, ví dụ còn thiếu để đúng với yêu cầu đề bài</li>
+                <li>Kiểm tra tính chính xác của các mốc thời gian, sự kiện lịch sử</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Biên tập tài liệu</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Dựa vào nội dung giáo trình, đối chiếu nội dung của AI với sơ đồ giáo trình</li>
+                <li>Xác định và đảm bảo nội dung đáp ứng đúng các CLO (Course Learning Outcomes) của môn học</li>
+                <li>Tham khảo các nguồn chính thống: nghị quyết, văn bản Đảng, tài liệu lịch sử</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-foreground mb-2">Kiểm chứng thông tin</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Đối chiếu các sự kiện lịch sử với tài liệu chính thức</li>
+                <li>Kiểm tra tính chính xác của các trích dẫn, ngày tháng, địa điểm</li>
+                <li>Đảm bảo nội dung phản ánh đúng tư tưởng Hồ Chí Minh theo giáo trình</li>
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <!-- 7. CAM KẾT LIÊM CHÍNH HỌC THUẬT -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold tracking-tight md:text-3xl mb-2">
+            7. CAM KẾT LIÊM CHÍNH HỌC THUẬT
+          </h2>
+          <p class="text-sm text-muted-foreground">
+            Cam kết về việc sử dụng AI một cách có trách nhiệm
+          </p>
+        </div>
+
+        <Card class="border-2 border-[color:var(--vn-red-soft)]/40 bg-gradient-to-br from-[color:var(--card)] to-[color:var(--card)]/95">
+          <CardContent class="pt-6 space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[color:var(--vn-red-soft)]/20 flex items-center justify-center">
+                <span class="text-lg">✓</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">AI chỉ đóng vai trò hỗ trợ, không thay thế tư duy học thuật</h3>
+                <p class="text-sm text-muted-foreground">
+                  Tất cả nội dung đã được nhóm chỉnh sửa, biên soạn lại. AI được sử dụng như công cụ hỗ trợ để tăng hiệu quả công việc, không phải để thay thế hoàn toàn quá trình tư duy và học tập của sinh viên.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[color:var(--vn-red-soft)]/20 flex items-center justify-center">
+                <span class="text-lg">✓</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Tất cả nội dung đã được nhóm chỉnh sửa, biên soạn lại</h3>
+                <p class="text-sm text-muted-foreground">
+                  Mọi output từ AI đều được nhóm xem xét, chỉnh sửa, bổ sung và kiểm tra kỹ lưỡng. Nội dung cuối cùng phản ánh sự hiểu biết và công sức của nhóm.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[color:var(--vn-red-soft)]/20 flex items-center justify-center">
+                <span class="text-lg">✓</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Không sao chép nguyên văn, không gian lận học thuật</h3>
+                <p class="text-sm text-muted-foreground">
+                  Nhóm cam kết không sao chép nguyên văn từ AI hoặc bất kỳ nguồn nào. Tất cả nội dung đều được biên soạn lại, có đối chiếu với nguồn chính thống và thể hiện sự hiểu biết của nhóm về môn học.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[color:var(--vn-red-soft)]/20 flex items-center justify-center">
+                <span class="text-lg">✓</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Có phân định rõ AI output và phần sinh viên chỉnh sửa/biên soạn</h3>
+                <p class="text-sm text-muted-foreground">
+                  Trang này minh bạch về việc sử dụng AI, phân định rõ phần nào do AI tạo ra và phần nào do nhóm chỉnh sửa, biên soạn. Nhóm chịu trách nhiệm về nội dung cuối cùng.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
