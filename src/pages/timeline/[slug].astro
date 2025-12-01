@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import timelineData from '../../data/timeline.json';
 import contentData from '../../data/content.json';
 import { Button } from '../../components/ui/button';
+import tuyenNgonDocLap from '../../assets/tuyen-ngon-doc-lap.jpg';
 
 export async function getStaticPaths() {
   const entries = timelineData as any[];
@@ -23,8 +24,20 @@ if (!entry || !article) {
 ---
 
 <BaseLayout title={entry.title}>
-  <section class="bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
-    <div class="mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+    <div class="pointer-events-none absolute inset-0">
+      <!-- Background image -->
+      <img 
+        src={tuyenNgonDocLap.src} 
+        alt="Tuyên ngôn độc lập" 
+        class="h-full w-full object-cover opacity-80"
+      />
+      <!-- Overlay để text dễ đọc -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
+    </div>
+    
+    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
       <Button asChild size="sm" variant="outline" class="mb-4 border-[color:var(--vn-yellow-soft)]/70 bg-[#260000]/80 text-[color:var(--vn-yellow-soft)] hover:bg-[#3a0000]">
         <a href="/timeline">← Quay lại Timeline</a>
       </Button>

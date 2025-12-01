@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { TimelineList } from '../components/TimelineList';
 import data from '../data/timeline.json';
+import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
 
 const raw = data as any[];
 const entries = raw.map((item) => ({
@@ -11,17 +12,22 @@ const entries = raw.map((item) => ({
 ---
 
 <BaseLayout title="HCM202 Timeline - Độc lập dân tộc và CNXH">
-  <!-- Hero với nền ảnh đen trắng mờ + gradient từ dưới lên -->
+  <!-- Hero với nền ảnh background -->
   <section class="relative overflow-hidden text-slate-50">
     <div class="pointer-events-none absolute inset-0">
-      <!-- Ảnh nền đen trắng: thay đường dẫn này bằng ảnh timeline của bạn nếu cần -->
-      <div class="absolute inset-0 bg-[url('/images/timeline-bg-bw.jpg')] bg-cover bg-center opacity-25 grayscale" />
-      <!-- Gradient tối từ dưới lên để nổi chữ -->
-      <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/70 to-transparent" />
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.16),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.55),transparent_60%)]" />
+      <!-- Background image -->
+      <img 
+        src={tuyenNgonDocLap.src} 
+        alt="Tuyên ngôn độc lập" 
+        class="h-full w-full object-cover opacity-80"
+      />
+      <!-- Overlay để text dễ đọc -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
     </div>
 
-    <div class="relative bg-gradient-to-b from-[#1a0000]/90 via-[#210000]/92 to-[#120000]/96">
+    <!-- Nội dung hero trên nền ảnh -->
+    <div class="relative">
       <div class="mx-auto max-w-6xl px-4 pb-14 pt-28 md:pb-18">
         <div class="max-w-2xl space-y-4">
           <p class="text-xs font-semibold uppercase tracking-[0.32em] text-[color:var(--vn-yellow-soft)]/90">
@@ -40,9 +46,21 @@ const entries = raw.map((item) => ({
     </div>
   </section>
 
-  <!-- Vùng timeline chính: nền trang trọng đỏ đậm + timeline dọc giữa màn hình -->
-  <section class="bg-[radial-gradient(circle_at_0_0,rgba(245,230,99,0.16),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(139,26,26,0.65),transparent_60%),linear-gradient(to_bottom,#1a0000,#120000_35%,#1a0000_80%)]">
-    <div class="mx-auto max-w-6xl px-4 py-14 md:py-18">
+  <!-- Vùng timeline chính: nền background image -->
+  <section class="relative overflow-hidden bg-[#1a0000]">
+    <div class="pointer-events-none absolute inset-0">
+      <!-- Background image -->
+      <img 
+        src={tuyenNgonDocLap.src} 
+        alt="Tuyên ngôn độc lập" 
+        class="h-full w-full object-cover opacity-80"
+      />
+      <!-- Overlay để timeline items dễ đọc -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_0_0,rgba(245,230,99,0.16),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(139,26,26,0.65),transparent_60%),linear-gradient(to_bottom,#1a0000/80,#120000/70,#1a0000/90)]" />
+    </div>
+    
+    <div class="relative mx-auto max-w-6xl px-4 py-14 md:py-18">
       <TimelineList client:load entries={entries} />
     </div>
   </section>
