@@ -1,27 +1,46 @@
 ---
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "../components/ui/navigation-menu";
 import { Button } from "../components/ui/button";
+
+const currentPath = Astro.url.pathname;
+const isOnHome = currentPath === "/";
+const isOnTimeline = currentPath.startsWith("/timeline");
+const isOnGame = currentPath.startsWith("/game") || currentPath.startsWith("/puzzle");
+const isOnARScan = currentPath.startsWith("/ar-scan");
+const isOnGallery = currentPath.startsWith("/gallery");
 ---
 
-<header class="fixed inset-x-0 top-0 z-40 border-b border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)]/95 backdrop-blur">
+<header
+  data-header
+  class="fixed inset-x-0 top-0 z-40 border-b border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)]/95 backdrop-blur transition-transform duration-300 data-[hidden]:-translate-y-full"
+>
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 md:h-16">
     <a href="/" class="flex items-center gap-2">
-      <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[color:var(--vn-yellow)] text-[#5C0000] font-bold">
-        HCM
-      </div>
       <div class="flex flex-col">
-        <span class="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-[color:var(--vn-yellow-soft)]">HCM202</span>
+        <span class="text-[0.8rem] font-bold tracking-[0.25em] uppercase text-[color:var(--vn-yellow-soft)]">HCM202</span>
         <span class="text-xs text-[color:var(--vn-yellow-soft)]/85 leading-none">Tư tưởng Hồ Chí Minh</span>
       </div>
     </a>
 
     <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
-      <a href="/" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trang chủ</a>
+      <a
+        href="/"
+        class={`transition-colors ${
+          isOnHome
+            ? "text-[color:var(--vn-yellow)]"
+            : "text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)]"
+        }`}
+      >
+        Trang chủ
+      </a>
       <div class="relative" data-timeline-desktop>
         <a
           href="/timeline"
           data-timeline-toggle-desktop
-          class="flex items-center gap-1 text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors"
+          class={`flex items-center gap-1 transition-colors ${
+            isOnTimeline
+              ? "text-[color:var(--vn-yellow)]"
+              : "text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)]"
+          }`}
         >
           <span>Timeline</span>
           <span class="text-[0.6rem] leading-none">▾</span>
@@ -84,7 +103,11 @@ import { Button } from "../components/ui/button";
         <button
           type="button"
           data-game-toggle-desktop
-          class="flex items-center gap-1 text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors"
+          class={`flex items-center gap-1 transition-colors ${
+            isOnGame
+              ? "text-[color:var(--vn-yellow)]"
+              : "text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)]"
+          }`}
         >
           <span>Game</span>
           <span class="text-[0.6rem] leading-none">▾</span>
@@ -107,8 +130,26 @@ import { Button } from "../components/ui/button";
           </a>
         </div>
       </div>
-      <a href="/ar-scan" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">AR Scan</a>
-      <a href="/gallery" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Gallery 3D</a>
+      <a
+        href="/ar-scan"
+        class={`transition-colors ${
+          isOnARScan
+            ? "text-[color:var(--vn-yellow)]"
+            : "text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)]"
+        }`}
+      >
+        AR Scan
+      </a>
+      <a
+        href="/gallery"
+        class={`transition-colors ${
+          isOnGallery
+            ? "text-[color:var(--vn-yellow)]"
+            : "text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)]"
+        }`}
+      >
+        Gallery 3D
+      </a>
     </nav>
 
     <!-- Bỏ các nút Timeline HCM202 & Vào Game để tránh trùng lặp, giúp header gọn hơn trên mọi kích cỡ màn hình -->
@@ -141,7 +182,14 @@ import { Button } from "../components/ui/button";
   >
     <div class="mx-auto max-w-6xl space-y-1 px-4 py-3 text-sm">
       <a href="/" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trang chủ</a>
-      <a href="/timeline" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Timeline</a>
+      <button
+        type="button"
+        data-mobile-timeline-open
+        class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70"
+      >
+        <span>Timeline</span>
+        <span class="text-[0.7rem]">▾</span>
+      </button>
       <div class="space-y-1">
         <button
           type="button"
@@ -175,6 +223,292 @@ import { Button } from "../components/ui/button";
   </nav>
 </header>
 
+<!-- Floating bottom navigation that appears after scrolling -->
+<div
+  data-floating-nav
+  class="pointer-events-none fixed inset-x-0 bottom-4 z-40 flex justify-center px-3 opacity-0 translate-y-4 transition-all duration-300 data-[visible]:opacity-100 data-[visible]:translate-y-0 sm:px-0"
+>
+  <nav
+    class="pointer-events-auto relative inline-flex items-center gap-1 rounded-full border border-[color:var(--vn-red-soft)]/60 bg-[color:var(--vn-red-soft)]/95 px-1.5 py-1 shadow-lg shadow-black/40 backdrop-blur-lg w-full max-w-md overflow-x-auto sm:max-w-lg md:max-w-2xl md:w-auto md:overflow-x-visible md:justify-center"
+  >
+    <a
+      href="/"
+      class={`flex flex-shrink-0 items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
+        isOnHome
+          ? "bg-[color:var(--vn-yellow)] text-[#5C0000]"
+          : "text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)]/10 hover:text-[color:var(--vn-yellow)]"
+      }`}
+    >
+      <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current">
+        <span class="h-2 w-2 rounded-sm bg-current" />
+      </span>
+      <span>Home</span>
+    </a>
+
+    <div class="relative flex-shrink-0" data-floating-timeline>
+      <button
+        type="button"
+        data-floating-timeline-toggle
+        class={`flex items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
+          isOnTimeline
+            ? "bg-[color:var(--vn-yellow)] text-[#5C0000]"
+            : "text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)]/10 hover:text-[color:var(--vn-yellow)]"
+        }`}
+      >
+        <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current">
+          <span class="h-2 w-2 rounded-sm border-[1.5px] border-current border-dashed" />
+        </span>
+        <span>Timeline</span>
+        <span class="text-[0.55rem] leading-none opacity-80">▾</span>
+      </button>
+
+      <div
+        data-floating-timeline-menu
+        class="pointer-events-none invisible absolute bottom-full left-1/2 z-50 mb-2 w-72 -translate-x-1/2 rounded-xl border border-[color:var(--vn-yellow-soft)]/40 bg-[color:var(--vn-red-soft)]/95 text-[color:var(--vn-yellow-soft)] opacity-0 shadow-lg transition-opacity duration-200 data-[open]:pointer-events-auto data-[open]:visible data-[open]:opacity-100"
+      >
+        <a
+          href="/timeline"
+          class="block border-b border-[color:var(--vn-yellow-soft)]/15 px-4 py-2 text-[0.7rem] uppercase tracking-[0.2em] text-[color:var(--vn-yellow-soft)]/80 hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          Toàn bộ Timeline
+        </a>
+        <a
+          href="/timeline/1911-nguyen-ai-quoc-ra-di"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          1911 – Nguyễn Ái Quốc ra đi tìm đường cứu nước
+        </a>
+        <a
+          href="/timeline/1917-1920-tiep-xuc-mac-lenin"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          1917–1920 – Tiếp xúc chủ nghĩa Mác – Lênin
+        </a>
+        <a
+          href="/timeline/1920-chon-con-duong-vo-san"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          1920 – Chọn con đường cách mạng vô sản
+        </a>
+        <a
+          href="/timeline/1930-thanh-lap-dang-con-san-vn"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          1930 – Thành lập Đảng Cộng sản Việt Nam
+        </a>
+        <a
+          href="/timeline/1945-tuyen-ngon-doc-lap"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          1945 – Tuyên ngôn độc lập
+        </a>
+        <a
+          href="/timeline/1951-1969-phat-trien-tu-tuong"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          1951–1969 – Phát triển tư tưởng độc lập – CNXH – hội nhập
+        </a>
+        <a
+          href="/timeline/hien-nay-doc-lap-va-fdi"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          Hiện nay – Độc lập tự chủ và thu hút FDI
+        </a>
+      </div>
+    </div>
+
+    <div class="relative flex-shrink-0" data-floating-game>
+      <button
+        type="button"
+        data-floating-game-toggle
+        class={`flex items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
+          isOnGame
+            ? "bg-[color:var(--vn-yellow)] text-[#5C0000]"
+            : "text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)]/10 hover:text-[color:var(--vn-yellow)]"
+        }`}
+      >
+        <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current">
+          <span class="h-[7px] w-[7px] border-[1.5px] border-current rounded-[3px]" />
+        </span>
+        <span>Game</span>
+        <span class="text-[0.55rem] leading-none opacity-80">▾</span>
+      </button>
+
+      <div
+        data-floating-game-menu
+        class="pointer-events-none invisible absolute bottom-full left-1/2 z-50 mb-2 w-40 -translate-x-1/2 rounded-xl border border-[color:var(--vn-yellow-soft)]/40 bg-[color:var(--vn-red-soft)]/95 text-[color:var(--vn-yellow-soft)] opacity-0 shadow-lg transition-opacity duration-200 data-[open]:pointer-events-auto data-[open]:visible data-[open]:opacity-100"
+      >
+        <a
+          href="/game"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          Quiz
+        </a>
+        <a
+          href="/puzzle"
+          class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+        >
+          Puzzle
+        </a>
+      </div>
+    </div>
+
+    <a
+      href="/ar-scan"
+      class={`flex flex-shrink-0 items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
+        isOnARScan
+          ? "bg-[color:var(--vn-yellow)] text-[#5C0000]"
+          : "text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)]/10 hover:text-[color:var(--vn-yellow)]"
+      }`}
+    >
+      <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current">
+        <span class="grid h-[9px] w-[9px] grid-cols-2 gap-[1px]">
+          <span class="block rounded-[1px] bg-current" />
+          <span class="block rounded-[1px] bg-current/40" />
+          <span class="block rounded-[1px] bg-current/40" />
+          <span class="block rounded-[1px] bg-current" />
+        </span>
+      </span>
+      <span>AR Scan</span>
+    </a>
+
+    <a
+      href="/gallery"
+      class={`flex flex-shrink-0 items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
+        isOnGallery
+          ? "bg-[color:var(--vn-yellow)] text-[#5C0000]"
+          : "text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)]/10 hover:text-[color:var(--vn-yellow)]"
+      }`}
+    >
+      <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current">
+        <span class="relative h-[10px] w-[10px] rounded-[3px] border border-current/60">
+          <span class="absolute inset-0 translate-x-[2px] translate-y-[2px] rounded-[3px] border border-current/40" />
+        </span>
+      </span>
+      <span>Gallery</span>
+    </a>
+  </nav>
+</div>
+
+<!-- Mobile dialogs for Timeline & Game from floating nav -->
+<div
+  data-floating-timeline-dialog
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4 data-[open]:flex md:hidden"
+>
+  <div class="w-full max-w-sm rounded-xl border border-[color:var(--vn-yellow-soft)]/40 bg-[color:var(--vn-red-soft)] text-[color:var(--vn-yellow-soft)] shadow-lg">
+    <div class="flex items-center justify-between border-b border-[color:var(--vn-yellow-soft)]/20 px-4 py-3">
+      <div class="flex flex-col">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--vn-yellow-soft)]/80">
+          Chọn mốc Timeline
+        </span>
+        <span class="text-sm text-[color:var(--vn-yellow-soft)]/90">
+          Nhấn vào mốc để chuyển trang
+        </span>
+      </div>
+      <button
+        type="button"
+        data-floating-timeline-close
+        class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--vn-yellow-soft)]/30 text-[color:var(--vn-yellow-soft)]/80 hover:bg-[color:var(--vn-yellow-soft)]/10"
+        aria-label="Đóng"
+      >
+        <span class="text-base leading-none">&times;</span>
+      </button>
+    </div>
+
+    <div class="max-h-[60vh] space-y-1 overflow-y-auto px-4 py-3 text-sm">
+      <a
+        href="/timeline"
+        class="block rounded-md px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--vn-yellow-soft)]/90 hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        Toàn bộ Timeline
+      </a>
+      <a
+        href="/timeline/1911-nguyen-ai-quoc-ra-di"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        1911 – Nguyễn Ái Quốc ra đi tìm đường cứu nước
+      </a>
+      <a
+        href="/timeline/1917-1920-tiep-xuc-mac-lenin"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        1917–1920 – Tiếp xúc chủ nghĩa Mác – Lênin
+      </a>
+      <a
+        href="/timeline/1920-chon-con-duong-vo-san"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        1920 – Chọn con đường cách mạng vô sản
+      </a>
+      <a
+        href="/timeline/1930-thanh-lap-dang-con-san-vn"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        1930 – Thành lập Đảng Cộng sản Việt Nam
+      </a>
+      <a
+        href="/timeline/1945-tuyen-ngon-doc-lap"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        1945 – Tuyên ngôn độc lập
+      </a>
+      <a
+        href="/timeline/1951-1969-phat-trien-tu-tuong"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        1951–1969 – Phát triển tư tưởng độc lập – CNXH – hội nhập
+      </a>
+      <a
+        href="/timeline/hien-nay-doc-lap-va-fdi"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        Hiện nay – Độc lập tự chủ và thu hút FDI
+      </a>
+    </div>
+  </div>
+</div>
+
+<div
+  data-floating-game-dialog
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4 data-[open]:flex md:hidden"
+>
+  <div class="w-full max-w-xs rounded-xl border border-[color:var(--vn-yellow-soft)]/40 bg-[color:var(--vn-red-soft)] text-[color:var(--vn-yellow-soft)] shadow-lg">
+    <div class="flex items-center justify-between border-b border-[color:var(--vn-yellow-soft)]/20 px-4 py-3">
+      <div class="flex flex-col">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--vn-yellow-soft)]/80">
+          Chọn game
+        </span>
+        <span class="text-sm text-[color:var(--vn-yellow-soft)]/90">
+          Nhấn để chuyển sang trò chơi
+        </span>
+      </div>
+      <button
+        type="button"
+        data-floating-game-close
+        class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--vn-yellow-soft)]/30 text-[color:var(--vn-yellow-soft)]/80 hover:bg-[color:var(--vn-yellow-soft)]/10"
+        aria-label="Đóng"
+      >
+        <span class="text-base leading-none">&times;</span>
+      </button>
+    </div>
+
+    <div class="space-y-1 px-4 py-3 text-sm">
+      <a
+        href="/game"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        Quiz
+      </a>
+      <a
+        href="/puzzle"
+        class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+      >
+        Puzzle
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
   if (typeof window !== 'undefined') {
     const toggle = document.querySelector('[data-menu-toggle]');
@@ -185,6 +519,17 @@ import { Button } from "../components/ui/button";
     const timelineMenuDesktop = document.querySelector('[data-timeline-menu-desktop]');
     const mobileGameToggle = document.querySelector('[data-mobile-game-toggle]');
     const mobileGameMenu = document.querySelector('[data-mobile-game-menu]');
+    const mobileTimelineOpen = document.querySelector('[data-mobile-timeline-open]');
+    const header = document.querySelector('[data-header]');
+    const floatingNav = document.querySelector('[data-floating-nav]');
+    const floatingTimelineToggle = document.querySelector('[data-floating-timeline-toggle]');
+    const floatingTimelineMenu = document.querySelector('[data-floating-timeline-menu]');
+    const floatingTimelineDialog = document.querySelector('[data-floating-timeline-dialog]');
+    const floatingTimelineClose = document.querySelector('[data-floating-timeline-close]');
+    const floatingGameToggle = document.querySelector('[data-floating-game-toggle]');
+    const floatingGameMenu = document.querySelector('[data-floating-game-menu]');
+    const floatingGameDialog = document.querySelector('[data-floating-game-dialog]');
+    const floatingGameClose = document.querySelector('[data-floating-game-close]');
 
     if (toggle && menu) {
       toggle.addEventListener('click', () => {
@@ -250,6 +595,124 @@ import { Button } from "../components/ui/button";
         }
       });
     }
+
+    if (mobileTimelineOpen && floatingTimelineDialog) {
+      mobileTimelineOpen.addEventListener('click', () => {
+        floatingTimelineDialog.setAttribute('data-open', '');
+      });
+    }
+
+    const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
+
+    if (floatingTimelineToggle) {
+      floatingTimelineToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        if (isDesktop()) {
+          // Desktop: dùng dropdown nhỏ
+          if (floatingTimelineMenu) {
+            if (floatingTimelineMenu.hasAttribute('data-open')) {
+              floatingTimelineMenu.removeAttribute('data-open');
+            } else {
+              floatingTimelineMenu.setAttribute('data-open', '');
+            }
+          }
+        } else if (floatingTimelineDialog) {
+          // Mobile: mở dialog full
+          floatingTimelineDialog.setAttribute('data-open', '');
+        }
+      });
+    }
+
+    if (floatingGameToggle) {
+      floatingGameToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        if (isDesktop()) {
+          if (floatingGameMenu) {
+            if (floatingGameMenu.hasAttribute('data-open')) {
+              floatingGameMenu.removeAttribute('data-open');
+            } else {
+              floatingGameMenu.setAttribute('data-open', '');
+            }
+          }
+        } else if (floatingGameDialog) {
+          floatingGameDialog.setAttribute('data-open', '');
+        }
+      });
+    }
+
+    if (floatingTimelineClose && floatingTimelineDialog) {
+      floatingTimelineClose.addEventListener('click', () => {
+        floatingTimelineDialog.removeAttribute('data-open');
+      });
+    }
+
+    if (floatingGameClose && floatingGameDialog) {
+      floatingGameClose.addEventListener('click', () => {
+        floatingGameDialog.removeAttribute('data-open');
+      });
+    }
+
+    if (floatingTimelineDialog) {
+      floatingTimelineDialog.addEventListener('click', (event) => {
+        if (event.target === floatingTimelineDialog) {
+          floatingTimelineDialog.removeAttribute('data-open');
+        }
+      });
+    }
+
+    if (floatingGameDialog) {
+      floatingGameDialog.addEventListener('click', (event) => {
+        if (event.target === floatingGameDialog) {
+          floatingGameDialog.removeAttribute('data-open');
+        }
+      });
+    }
+
+    if ((floatingTimelineMenu && floatingTimelineToggle) || (floatingGameMenu && floatingGameToggle)) {
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+
+        if (
+          floatingTimelineMenu &&
+          floatingTimelineToggle &&
+          !target?.closest('[data-floating-timeline]') &&
+          floatingTimelineMenu.hasAttribute('data-open')
+        ) {
+          floatingTimelineMenu.removeAttribute('data-open');
+        }
+
+        if (
+          floatingGameMenu &&
+          floatingGameToggle &&
+          !target?.closest('[data-floating-game]') &&
+          floatingGameMenu.hasAttribute('data-open')
+        ) {
+          floatingGameMenu.removeAttribute('data-open');
+        }
+      });
+    }
+
+    // Toggle header & floating nav based on scroll position
+    const scrollThreshold = 120;
+
+    const handleScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+
+      if (header && floatingNav) {
+        if (y > scrollThreshold) {
+          header.setAttribute('data-hidden', '');
+          floatingNav.setAttribute('data-visible', '');
+        } else {
+          header.removeAttribute('data-hidden');
+          floatingNav.removeAttribute('data-visible');
+        }
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
   }
 </script>
 

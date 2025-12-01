@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import rawQuiz from '../data/quiz.json';
 import { Quiz } from '../components/Quiz';
-import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
+import chuTichHoChiMinh from '../assets/chu-tich-ho-chi-minh.jpg';
 
 const quizData = (rawQuiz as any[]).map((q, index) => ({
   id: index + 1,
@@ -13,11 +13,11 @@ const quizData = (rawQuiz as any[]).map((q, index) => ({
 ---
 
 <BaseLayout title="Game HCM202 - Độc lập dân tộc và CNXH">
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)] md:min-h-[420px]">
     <div class="pointer-events-none absolute inset-0">
       <!-- Background image -->
       <img 
-        src={tuyenNgonDocLap.src} 
+        src={chuTichHoChiMinh.src}
         alt="Tuyên ngôn độc lập" 
         class="h-full w-full object-cover opacity-80"
       />
@@ -26,7 +26,7 @@ const quizData = (rawQuiz as any[]).map((q, index) => ({
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
     </div>
     
-    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-32 md:pb-24 md:pt-40">
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
           Game tương tác

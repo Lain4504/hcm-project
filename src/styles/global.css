@@ -151,6 +151,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'League Spartan Variable', sans-serif;
+    font-family: 'Nunito Sans Variable', sans-serif;
   }
 }

@@ -2,8 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { TimelineList } from '../components/TimelineList';
 import data from '../data/timeline.json';
-import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
-
+import chuTichHoChiMinhLamViec from '../assets/chu-tich-ho-chi-minh-lam-viec.jpg';
 const raw = data as any[];
 const entries = raw.map((item) => ({
   ...item,
@@ -17,7 +16,7 @@ const entries = raw.map((item) => ({
     <div class="pointer-events-none absolute inset-0">
       <!-- Background image -->
       <img 
-        src={tuyenNgonDocLap.src} 
+        src={chuTichHoChiMinhLamViec.src}
         alt="Tuyên ngôn độc lập" 
         class="h-full w-full object-cover opacity-80"
       />
@@ -46,18 +45,37 @@ const entries = raw.map((item) => ({
     </div>
   </section>
 
-  <!-- Vùng timeline chính: nền background image -->
-  <section class="relative overflow-hidden bg-[#1a0000]">
+  <!-- Vùng timeline chính: nền màu giấy với họa tiết Việt Nam -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-amber-50 via-orange-50 to-amber-50">
     <div class="pointer-events-none absolute inset-0">
-      <!-- Background image -->
-      <img 
-        src={tuyenNgonDocLap.src} 
-        alt="Tuyên ngôn độc lập" 
-        class="h-full w-full object-cover opacity-80"
-      />
-      <!-- Overlay để timeline items dễ đọc -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_0_0,rgba(245,230,99,0.16),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(139,26,26,0.65),transparent_60%),linear-gradient(to_bottom,#1a0000/80,#120000/70,#1a0000/90)]" />
+      <!-- Pattern nền giấy xưa -->
+      <div class="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23000000" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" />
+      
+      <!-- Màu cờ Việt Nam - Đỏ và Vàng -->
+      <div class="absolute inset-0 bg-gradient-to-b from-red-50/30 via-yellow-50/20 to-red-50/30" />
+      
+      <!-- Họa tiết trang trí góc -->
+      <div class="absolute top-0 left-0 w-64 h-64 opacity-10">
+        <div class="absolute top-8 left-8 w-32 h-32 border-4 border-red-600/20 rounded-full" />
+        <div class="absolute top-16 left-16 w-16 h-16 border-2 border-yellow-500/20 rounded-full" />
+      </div>
+      <div class="absolute bottom-0 right-0 w-64 h-64 opacity-10">
+        <div class="absolute bottom-8 right-8 w-32 h-32 border-4 border-red-600/20 rounded-full" />
+        <div class="absolute bottom-16 right-16 w-16 h-16 border-2 border-yellow-500/20 rounded-full" />
+      </div>
+      
+      <!-- Họa tiết lá sen/hoa sen mờ -->
+      <div class="absolute inset-0 opacity-5">
+        <svg class="absolute top-20 right-10 w-40 h-40 text-red-600/20" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 20 Q30 40, 20 60 Q30 80, 50 80 Q70 80, 80 60 Q70 40, 50 20 M50 30 Q65 45, 70 60 Q65 75, 50 75 Q35 75, 30 60 Q35 45, 50 30" />
+        </svg>
+        <svg class="absolute bottom-20 left-10 w-32 h-32 text-yellow-600/15" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 20 Q30 40, 20 60 Q30 80, 50 80 Q70 80, 80 60 Q70 40, 50 20 M50 30 Q65 45, 70 60 Q65 75, 50 75 Q35 75, 30 60 Q35 45, 50 30" />
+        </svg>
+      </div>
+      
+      <!-- Đường kẻ trang trí nhẹ -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-red-300/10 to-transparent" />
     </div>
     
     <div class="relative mx-auto max-w-6xl px-4 py-14 md:py-18">
