@@ -30,21 +30,23 @@ import { Button } from '../components/ui/button';
         </p>
         <Button
           asChild
-          size="sm"
-          variant="outline"
-          class="group border-[color:var(--vn-yellow-soft)]/80 bg-[#260000]/90 text-[color:var(--vn-yellow-soft)] shadow-[0_0_25px_rgba(218,165,32,0.45)] transition-all hover:-translate-y-[1px] hover:border-[color:var(--vn-yellow)] hover:bg-[#3a0000] hover:shadow-[0_0_40px_rgba(255,215,0,0.7)]"
+          size="lg"
+          className="group relative overflow-hidden border border-[color:var(--vn-yellow-soft)]/70 bg-gradient-to-r from-[color:var(--primary)] via-[color:var(--vn-red-soft)] to-[color:var(--vn-yellow-soft)] text-primary-foreground shadow-[0_0_22px_rgba(255,215,0,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] hover:scale-[1.03] active:scale-[0.99]"
         >
           <a
-            href="https://virtual-art-gallery-chi.vercel.app/build.html"
+            href="http://localhost:4321/gallery"
             target="_blank"
             rel="noreferrer"
-            class="inline-flex items-center gap-2"
+            class="relative z-10 flex items-center gap-2 text-sm font-semibold tracking-wide"
           >
-            <span>Mở Gallery 3D</span>
-            <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
+            <span class="uppercase tracking-[0.18em]">Mở Gallery 3D</span>
+            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-black/25 text-[10px]">
+              → 
             </span>
           </a>
+          <span
+            class="pointer-events-none absolute inset-0 -translate-x-full bg-[radial-gradient(circle_at_0%_50%,rgba(255,255,255,0.7),transparent_55%)] opacity-0 transition-all duration-500 group-hover:translate-x-[120%] group-hover:opacity-100"
+          />
         </Button>
       </div>
 

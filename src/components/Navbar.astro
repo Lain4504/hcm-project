@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button";
 ---
 
 <header class="fixed inset-x-0 top-0 z-40 border-b border-[color:var(--vn-red-dark)] bg-[color:var(--vn-red-dark)]/95 backdrop-blur">
-  <div class="container mx-auto flex h-16 items-center justify-between px-4">
+  <div class="container mx-auto flex items-center justify-between gap-3 px-4 py-2 md:h-16">
     <a href="/" class="flex items-center gap-2">
       <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[color:var(--vn-yellow)] text-[#5C0000] font-bold">
         HCM
@@ -18,25 +18,39 @@ import { Button } from "../components/ui/button";
     <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
       <a href="/" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trang chủ</a>
       <a href="/timeline" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Timeline</a>
-      <a href="/game" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Game</a>
+      <div class="relative" data-game-desktop>
+        <button
+          type="button"
+          data-game-toggle-desktop
+          class="flex items-center gap-1 text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors"
+        >
+          <span>Game</span>
+          <span class="text-[0.6rem] leading-none">▾</span>
+        </button>
+        <div
+          data-game-menu-desktop
+          class="invisible absolute right-0 top-full z-50 mt-2 min-w-[150px] rounded-xl border border-[color:var(--vn-yellow-soft)]/40 bg-[color:var(--vn-red-soft)]/95 text-[color:var(--vn-yellow-soft)] shadow-lg opacity-0 transition-opacity data-[open]:visible data-[open]:opacity-100"
+        >
+          <a
+            href="/game/quiz"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            Quiz
+          </a>
+          <a
+            href="/puzzle"
+            class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
+          >
+            Puzzle
+          </a>
+        </div>
+      </div>
       <a href="/ar-scan" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">AR Scan</a>
       <a href="/ar" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Trải nghiệm AR</a>
       <a href="/gallery" class="text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)] transition-colors">Gallery 3D</a>
     </nav>
 
-    <div class="hidden md:flex items-center gap-3">
-      <Button
-        asChild
-        size="sm"
-        variant="outline"
-        class="border-[color:var(--vn-yellow-soft)]/80 bg-transparent text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)] hover:text-[#5C0000]"
-      >
-        <a href="/timeline" class="text-[color:var(--vn-yellow-soft)]">Timeline HCM202</a>
-      </Button>
-      <Button asChild size="sm" class="text-[color:var(--vn-yellow-soft)] hover:text-[#5C0000]">
-        <a href="/game" class="text-[color:var(--vn-yellow-soft)]">Vào Game</a>
-      </Button>
-    </div>
+    <!-- Bỏ các nút Timeline HCM202 & Vào Game để tránh trùng lặp, giúp header gọn hơn trên mọi kích cỡ màn hình -->
 
     <div class="flex items-center gap-2 md:hidden">
       <Button
@@ -67,7 +81,33 @@ import { Button } from "../components/ui/button";
     <div class="space-y-1 px-4 py-3 text-sm">
       <a href="/" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trang chủ</a>
       <a href="/timeline" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Timeline</a>
-      <a href="/game" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Game</a>
+      <div class="space-y-1">
+        <button
+          type="button"
+          data-mobile-game-toggle
+          class="flex w-full items-center justify-between rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70"
+        >
+          <span>Game</span>
+          <span class="text-[0.7rem]">▾</span>
+        </button>
+        <div
+          data-mobile-game-menu
+          class="max-h-0 overflow-hidden pl-4 text-sm transition-[max-height] duration-300"
+        >
+          <a
+            href="/game/quiz"
+            class="mt-1 block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70"
+          >
+            Quiz
+          </a>
+          <a
+            href="/puzzle"
+            class="mt-1 block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70"
+          >
+            Puzzle
+          </a>
+        </div>
+      </div>
       <a href="/ar-scan" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">AR Scan</a>
       <a href="/ar" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Trải nghiệm AR</a>
       <a href="/gallery" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Gallery 3D</a>
@@ -79,6 +119,10 @@ import { Button } from "../components/ui/button";
   if (typeof window !== 'undefined') {
     const toggle = document.querySelector('[data-menu-toggle]');
     const menu = document.querySelector('[data-mobile-nav]');
+    const gameToggleDesktop = document.querySelector('[data-game-toggle-desktop]');
+    const gameMenuDesktop = document.querySelector('[data-game-menu-desktop]');
+    const mobileGameToggle = document.querySelector('[data-mobile-game-toggle]');
+    const mobileGameMenu = document.querySelector('[data-mobile-game-menu]');
 
     if (toggle && menu) {
       toggle.addEventListener('click', () => {
@@ -86,6 +130,35 @@ import { Button } from "../components/ui/button";
           menu.removeAttribute('data-open');
         } else {
           menu.setAttribute('data-open', '');
+        }
+      });
+    }
+
+    if (gameToggleDesktop && gameMenuDesktop) {
+      gameToggleDesktop.addEventListener('click', () => {
+        if (gameMenuDesktop.hasAttribute('data-open')) {
+          gameMenuDesktop.removeAttribute('data-open');
+        } else {
+          gameMenuDesktop.setAttribute('data-open', '');
+        }
+      });
+
+      // Đóng menu Game khi click ra ngoài
+      document.addEventListener('click', (event) => {
+        if (!event.target.closest('[data-game-desktop]') && gameMenuDesktop.hasAttribute('data-open')) {
+          gameMenuDesktop.removeAttribute('data-open');
+        }
+      });
+    }
+
+    if (mobileGameToggle && mobileGameMenu) {
+      mobileGameToggle.addEventListener('click', () => {
+        if (mobileGameMenu.hasAttribute('data-open')) {
+          mobileGameMenu.removeAttribute('data-open');
+          mobileGameMenu.style.maxHeight = '0px';
+        } else {
+          mobileGameMenu.setAttribute('data-open', '');
+          mobileGameMenu.style.maxHeight = mobileGameMenu.scrollHeight + 'px';
         }
       });
     }
