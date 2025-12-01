@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PuzzleBoard from "../../components/PuzzleBoard.jsx";
+import puzzles from "../../data/puzzles.json";
+import dienBienPhu from "../../assets/puzzle/dien-bien-phu-1954.jpg";
+
+export async function getStaticPaths() {
+  const list = puzzles as any[];
+  return list.map((puzzle) => ({
+    params: { id: puzzle.id },
+  }));
+}
+
+const { id } = Astro.params;
+const puzzleList = puzzles as any[];
+const puzzle = puzzleList.find((p) => p.id === id);
+
+const imageMap: Record<string, any> = {
+  "dien-bien-phu-1954": dienBienPhu,
+};
+
+const image = imageMap[id];
+
+if (!puzzle || !image) {
+  throw new Error(`Puzzle or image not found for id: ${id}`);
+}
+---
+
+<BaseLayout
+  title={`Puzzle: ${puzzle.title}`}
+  description={puzzle.shortDescription}
+>
+  <section class="bg-background">
+    <div class="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-6">
+      <div class="flex items-center justify-between gap-3">
+        <a
+          href="/puzzle"
+          class="text-xs font-medium text-[color:var(--vn-red-soft)] hover:text-[color:var(--vn-red-light)]"
+        >
+          ← Quay lại danh sách puzzle
+        </a>
+        <span class="rounded-full bg-[color:var(--secondary)] px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--vn-red-soft)]">
+          Độ khó: {puzzle.difficulty}
+        </span>
+      </div>
+
+      <div class="space-y-1 text-center md:text-left">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--vn-yellow-soft)]">
+          Game HCM202 · Puzzle xếp hình
+        </p>
+        <h1 class="text-balance text-2xl font-bold leading-tight tracking-tight text-[color:var(--vn-red-soft)] sm:text-3xl md:text-4xl">
+          {puzzle.title}
+        </h1>
+        <p class="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
+          {puzzle.shortDescription}
+        </p>
+      </div>
+
+      <PuzzleBoard client:load puzzleInfo={puzzle} image={image.src} />
+    </div>
+  </section>
+</BaseLayout>
+
+
