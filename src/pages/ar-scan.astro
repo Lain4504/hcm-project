@@ -4,15 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button';
 import qrHcm from '../assets/ar/ar_qr_code_hcm.png';
 import hcmImage from '../assets/ar/hcm_image.png';
-import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
+import linhHonCachMangVietNam from "../assets/hq720.jpg";
 ---
 
 <BaseLayout title="AR Scan - Mô phỏng không gian HCM202">
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)] md:min-h-[420px]">
     <div class="pointer-events-none absolute inset-0">
       <!-- Background image -->
       <img 
-        src={tuyenNgonDocLap.src} 
+        src={linhHonCachMangVietNam.src}
         alt="Tuyên ngôn độc lập" 
         class="h-full w-full object-cover opacity-80"
       />
@@ -21,7 +21,7 @@ import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
     </div>
     
-    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-32 md:pb-24 md:pt-40">
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
           Hướng dẫn AR
@@ -80,23 +80,34 @@ import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
                     <code class="ml-1 rounded bg-[color:var(--vn-yellow-soft)]/40 px-1 text-[0.7rem]">/ar</code>.
                   </p>
                 </div>
-
-                <div class="flex flex-col items-center gap-2">
-                  <div class="flex max-h-56 w-full max-w-xs items-center justify-center overflow-hidden rounded-xl border border-[color:var(--vn-red-soft)]/40 bg-black/40">
-                    <img
-                      src={hcmImage.src}
-                      alt="Hình minh họa không gian AR HCM202 sau khi quét mã"
-                      class="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <p class="text-[0.7rem] text-muted-foreground text-center">
-                    Hình minh họa mô hình AR hiển thị trong không gian sau khi bạn quét mã QR.
-                  </p>
-                </div>
               </div>
             </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
 
+    <!-- Hình minh họa AR ở giữa màn hình -->
+    <div class="mx-auto max-w-6xl px-4 py-6">
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-full max-w-2xl overflow-hidden rounded-xl border-2 border-[color:var(--vn-red-soft)]/40 bg-black/20 shadow-xl">
+          <img
+            src={hcmImage.src}
+            alt="Hình minh họa không gian AR HCM202 sau khi quét mã"
+            class="w-full h-auto object-contain max-h-[70vh]"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-center text-sm text-muted-foreground max-w-2xl">
+          Hình minh họa mô hình AR hiển thị trong không gian sau khi bạn quét mã QR. Hãy quét mã QR ở trên để trải nghiệm.
+        </p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-6xl px-2 py-6 md:px-4">
+      <div class="mx-auto w-full">
+        <Card class="w-full border-[color:var(--vn-red-soft)]/25 bg-[color:var(--card)] px-3 py-4 sm:px-5 sm:py-5">
+          <CardContent class="space-y-6 text-sm text-muted-foreground">
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
               <p class="text-[0.75rem] text-muted-foreground">
                 Nếu đã mở website trên thiết bị di động, bạn có thể bỏ qua bước quét QR và nhấn nút dưới đây.

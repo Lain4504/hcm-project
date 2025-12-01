@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import puzzles from "../data/puzzles.json";
-import tuyenNgonDocLap from "../assets/tuyen-ngon-doc-lap.jpg";
+import hoChiMinh1 from "../assets/hcm1-16529275928651573705413-0-0-375-600-crop-16529276019091318892288.jpg";
 ---
 
 <BaseLayout
@@ -9,11 +9,11 @@ import tuyenNgonDocLap from "../assets/tuyen-ngon-doc-lap.jpg";
   description="Mini-game puzzle xếp hình về lịch sử Việt Nam, chủ đề Chiến thắng Điện Biên Phủ."
 >
   <!-- Hero section với background image -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)] md:min-h-[420px]">
     <div class="pointer-events-none absolute inset-0">
       <!-- Background image -->
       <img 
-        src={tuyenNgonDocLap.src} 
+        src={hoChiMinh1.src}
         alt="Tuyên ngôn độc lập" 
         class="h-full w-full object-cover opacity-80"
       />
@@ -22,7 +22,7 @@ import tuyenNgonDocLap from "../assets/tuyen-ngon-doc-lap.jpg";
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
     </div>
     
-    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-32 md:pb-24 md:pt-40">
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
           Game HCM202 · Puzzle xếp hình

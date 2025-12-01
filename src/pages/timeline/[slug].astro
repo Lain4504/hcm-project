@@ -24,7 +24,7 @@ if (!entry || !article) {
 ---
 
 <BaseLayout title={entry.title}>
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)] md:min-h-[420px]">
     <div class="pointer-events-none absolute inset-0">
       <!-- Background image -->
       <img 
@@ -37,7 +37,7 @@ if (!entry || !article) {
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
     </div>
     
-    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-32 md:pb-24 md:pt-40">
       <Button asChild size="sm" variant="outline" class="mb-4 border-[color:var(--vn-yellow-soft)]/70 bg-[#260000]/80 text-[color:var(--vn-yellow-soft)] hover:bg-[#3a0000]">
         <a href="/timeline">← Quay lại Timeline</a>
       </Button>
