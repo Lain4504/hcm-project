@@ -2,11 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import tuyenNgonDocLap from '../assets/tuyen-ngon-doc-lap.jpg';
 ---
 
 <BaseLayout title="Gallery 3D - Không gian HCM202">
-  <section class="bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
-    <div class="mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+    <div class="pointer-events-none absolute inset-0">
+      <!-- Background image -->
+      <img 
+        src={tuyenNgonDocLap.src} 
+        alt="Tuyên ngôn độc lập" 
+        class="h-full w-full object-cover opacity-80"
+      />
+      <!-- Overlay để text dễ đọc -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
+    </div>
+    
+    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
           Gallery 3D
@@ -31,7 +44,7 @@ import { Button } from '../components/ui/button';
           className="group relative overflow-hidden border-2 border-[color:var(--vn-red-soft)] bg-gradient-to-r from-[color:var(--vn-red-dark)] via-[color:var(--vn-red-soft)] to-[color:var(--vn-red-dark)] text-white shadow-[0_0_25px_rgba(220,38,38,0.6)] transition-all duration-300 hover:shadow-[0_0_45px_rgba(220,38,38,0.9)] hover:scale-[1.05] active:scale-[0.98] hover:border-[color:var(--vn-red-soft)]/90"
         >
           <a
-            href="http://localhost:4321/gallery"
+            href="https://virtual-art-gallery-chi.vercel.app/build.html"
             target="_blank"
             rel="noreferrer"
             class="relative z-10 flex items-center gap-2 text-base font-bold tracking-wide"

@@ -1,27 +1,46 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import puzzles from "../data/puzzles.json";
+import tuyenNgonDocLap from "../assets/tuyen-ngon-doc-lap.jpg";
 ---
 
 <BaseLayout
   title="Puzzle xếp hình - Lịch sử Việt Nam"
   description="Mini-game puzzle xếp hình về lịch sử Việt Nam, chủ đề Chiến thắng Điện Biên Phủ."
 >
-  <section class="bg-background">
-    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14 space-y-8">
-      <div class="space-y-2 text-center md:text-left">
-        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--vn-yellow-soft)]">
+  <!-- Hero section với background image -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
+    <div class="pointer-events-none absolute inset-0">
+      <!-- Background image -->
+      <img 
+        src={tuyenNgonDocLap.src} 
+        alt="Tuyên ngôn độc lập" 
+        class="h-full w-full object-cover opacity-80"
+      />
+      <!-- Overlay để text dễ đọc -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
+    </div>
+    
+    <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
           Game HCM202 · Puzzle xếp hình
         </p>
-        <h1 class="text-balance text-2xl font-bold leading-tight tracking-tight text-[color:var(--vn-red-soft)] sm:text-3xl md:text-4xl">
+        <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
           Chọn puzzle lịch sử để trải nghiệm
         </h1>
-        <p class="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
+        <p class="mt-3 max-w-xl text-sm text-[color:var(--vn-yellow-soft)]/90 md:text-base">
           Mỗi puzzle là một bức ảnh gắn với một sự kiện lịch sử quan trọng. Hãy chọn một chủ đề để bắt đầu
           sắp xếp các mảnh ghép và khám phá câu chuyện phía sau bức hình.
         </p>
       </div>
+    </div>
+  </section>
 
+  <!-- Section nội dung chính -->
+  <section class="bg-background">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
       <div class="grid gap-6 md:grid-cols-3">
         {(puzzles as any[]).map((puzzle) => (
           <a
