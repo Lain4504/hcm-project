@@ -24,7 +24,7 @@ if (!entry || !article) {
 
 <BaseLayout title={entry.title}>
   <section class="bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
-    <div class="container mx-auto px-4 pb-10 pt-28 md:pb-14">
+    <div class="mx-auto max-w-6xl px-4 pb-10 pt-28 md:pb-14">
       <Button asChild size="sm" variant="outline" class="mb-4 border-[color:var(--vn-yellow-soft)]/70 bg-[#260000]/80 text-[color:var(--vn-yellow-soft)] hover:bg-[#3a0000]">
         <a href="/timeline">← Quay lại Timeline</a>
       </Button>
@@ -55,7 +55,7 @@ if (!entry || !article) {
   </section>
 
   <section class="bg-background">
-    <div class="container mx-auto grid gap-8 px-4 py-12 md:grid-cols-[3fr,2fr] md:py-16">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-[3fr,2fr] md:py-16">
       <article class="prose prose-sm max-w-none text-foreground prose-p:mb-4 prose-p:mt-0 prose-headings:mt-6 prose-headings:mb-3 prose-strong:text-foreground">
         {article.paragraphs?.map((paragraph: string, idx: number) => (
           <p key={idx}>{paragraph}</p>
