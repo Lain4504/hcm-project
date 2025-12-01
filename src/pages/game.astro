@@ -8,7 +8,8 @@ const quizData = (rawQuiz as any[]).map((q, index) => ({
   id: index + 1,
   question: q.question,
   options: q.options,
-  correctIndex: q.answer
+  correctIndex: q.answer,
+  explanation: q.explanation
 }));
 ---
 
