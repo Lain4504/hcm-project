@@ -9,7 +9,7 @@ interface ARViewerProps {
 // Component hiển thị thẻ <model-viewer>. Script model-viewer sẽ được nạp ở trang AR.
 export const ARViewer: React.FC<ARViewerProps> = ({ src, poster, title }) => {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-sky-100/70 bg-slate-950/80 shadow-[0_0_40px_rgba(56,189,248,0.35)]">
+    <div className="relative overflow-hidden rounded-2xl border border-[color:var(--vn-red-soft)]/40 bg-[#050000]/90 shadow-[0_0_40px_rgba(139,0,0,0.5)]">
       <model-viewer
         src={src}
         poster={poster}

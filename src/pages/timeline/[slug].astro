@@ -4,6 +4,13 @@ import timelineData from '../../data/timeline.json';
 import contentData from '../../data/content.json';
 import { Button } from '../../components/ui/button';
 
+export async function getStaticPaths() {
+  const entries = timelineData as any[];
+  return entries.map((e) => ({
+    params: { slug: e.slug },
+  }));
+}
+
 const { slug } = Astro.params;
 const entries = timelineData as any[];
 const entry = entries.find((e) => e.slug === slug);
@@ -16,25 +23,25 @@ if (!entry || !article) {
 ---
 
 <BaseLayout title={entry.title}>
-  <section class="bg-gradient-to-b from-sky-950 via-sky-950 to-background text-sky-50">
+  <section class="bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
     <div class="container mx-auto px-4 pb-10 pt-28 md:pb-14">
-      <Button asChild size="sm" variant="outline" class="mb-4 border-sky-300/60 bg-sky-950/60 text-sky-100 hover:bg-sky-900">
+      <Button asChild size="sm" variant="outline" class="mb-4 border-[color:var(--vn-yellow-soft)]/70 bg-[#260000]/80 text-[color:var(--vn-yellow-soft)] hover:bg-[#3a0000]">
         <a href="/timeline">← Quay lại Timeline</a>
       </Button>
       <div class="grid gap-6 md:grid-cols-[3fr,2fr] md:items-start">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-sky-300">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
             {entry.date}
           </p>
           <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
             {entry.title}
           </h1>
-          <p class="mt-3 max-w-2xl text-sm text-sky-100/90 md:text-base">
+          <p class="mt-3 max-w-2xl text-sm text-[color:var(--vn-yellow-soft)]/90 md:text-base">
             {entry.short}
           </p>
         </div>
         {article.image && (
-          <div class="overflow-hidden rounded-2xl border border-sky-400/40 bg-slate-900/80 shadow-[0_0_40px_rgba(56,189,248,0.35)]">
+          <div class="overflow-hidden rounded-2xl border border-[color:var(--vn-red-soft)]/45 bg-[#050000]/90 shadow-[0_0_40px_rgba(139,0,0,0.5)]">
             <img
               src={article.image}
               alt={entry.title}
