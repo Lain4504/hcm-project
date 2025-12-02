@@ -1,112 +1,112 @@
 [
   {
-    "question": "Năm 1911, quyết định ra đi tìm đường cứu nước của Nguyễn Ái Quốc có ý nghĩa gì?",
+    "question": "Theo tư tưởng Hồ Chí Minh, nhiệm vụ nào được đặt lên hàng đầu trong giải phóng dân tộc?",
     "options": [
-      "Chỉ là chuyến đi lao động kiếm sống bình thường",
-      "Đánh dấu bước ngoặt trong hành trình tìm con đường cứu nước mới",
-      "Nhằm tìm kiếm sự giúp đỡ quân sự từ các nước phương Tây",
-      "Nhằm tham gia Thế chiến thứ nhất"
+      "Giải phóng con người",
+      "Giải phóng dân tộc",
+      "Giải phóng giai cấp",
+      "Cả a, b và c đều đúng"
     ],
     "answer": 1,
-    "explanation": "Năm 1911 là mốc quan trọng khi Nguyễn Ái Quốc rời Tổ quốc để tìm kiếm con đường giải phóng dân tộc. Quyết định này thể hiện tinh thần không ngừng tìm tòi, học hỏi để tìm ra phương pháp cứu nước phù hợp nhất cho Việt Nam."
+    "explanation": "Hồ Chí Minh coi giải phóng dân tộc là nhiệm vụ hàng đầu, thể hiện tầm quan trọng của độc lập dân tộc trong tư tưởng của ông."
   },
   {
-    "question": "Trong giai đoạn 1917–1920, yếu tố nào đã giúp Nguyễn Ái Quốc định hình con đường cách mạng Việt Nam?",
+    "question": "Giải phóng dân tộc theo tư tưởng Hồ Chí Minh thực chất là gì?",
     "options": [
-      "Tiếp xúc với phong trào công nhân và nghiên cứu học thuyết Mác – Lênin",
-      "Tham gia các tổ chức yêu nước tư sản ở châu Á",
-      "Làm việc trong các cơ quan chính quyền thực dân",
-      "Trở về nước để lãnh đạo phong trào nông dân"
+      "Tất cả đều đúng",
+      "Giành độc lập dân tộc, hình thành nhà nước dân tộc độc lập",
+      "Đánh đổ áp bức, thống trị của đế quốc, thực dân giành độc lập dân tộc",
+      "Đánh đổ áp bức, thống trị của đế quốc, thực dân giành độc lập dân tộc, hình thành nhà nước dân tộc độc lập và tự do lựa chọn con đường phát triể của dân tộc phù hợp với xu thế phát triển của thời đại"
+    ],
+    "answer": 3,
+    "explanation": "Giải phóng dân tộc theo Hồ Chí Minh không chỉ là giành độc lập mà còn phải đánh đổ áp bức và hình thành nhà nước độc lập, tự do."
+  },
+  {
+    "question": "Hồ Chí Minh đã dùng hình tượng nào để mô tả mối quan hệ giữa cách mạng giải phóng dân tộc và cách mạng vô sản?",
+    "options": [
+      "Hai cánh của một con chim",
+      "Con bạch tuộc",
+      "Con đĩa hai vòi",
+      "Hai con chim đại bàng"
     ],
     "answer": 0,
-    "explanation": "Giai đoạn này, Người trực tiếp quan sát phong trào công nhân và nghiên cứu chủ nghĩa Mác-Lênin, từ đó nhận ra con đường cách mạng vô sản là giải pháp để giải phóng dân tộc và xây dựng xã hội mới."
+    "explanation": "Hồ Chí Minh so sánh mối quan hệ này với hai cánh của một con chim, thể hiện sự liên kết chặt chẽ giữa hai cuộc cách mạng."
   },
   {
-    "question": "Quyết định của Nguyễn Ái Quốc năm 1920 tại Quốc tế Cộng sản là:",
+    "question": "Theo Hồ Chí Minh, mối quan hệ giữa vấn đề dân tộc và vấn đề giai cấp là gì?",
     "options": [
-      "Ủng hộ con đường cải cách ôn hòa",
-      "Từ chối chủ nghĩa Mác – Lênin",
-      "Chọn con đường cách mạng vô sản theo chủ nghĩa Mác – Lênin",
-      "Tạm gác vấn đề độc lập dân tộc"
+      "Giải phóng dân tộc không liên quan đến giải phóng giai cấp",
+      "Giải phóng dân tộc là tiền đề để giải phóng giai cấp",
+      "Giải phóng dân tộc và giải phóng giai cấp cần được tiến hành song song",
+      "Giải phóng giai cấp là tiền đề để giải phóng dân tộc"
     ],
     "answer": 2,
-    "explanation": "Sau khi đọc Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và thuộc địa của Lênin, Nguyễn Ái Quốc đã chọn con đường cách mạng vô sản vì đây là con đường giải phóng triệt để cho các dân tộc bị áp bức."
+    "explanation": "Hồ Chí Minh cho rằng giải phóng dân tộc và giải phóng giai cấp cần được tiến hành song song, thể hiện sự liên kết giữa hai vấn đề này."
   },
   {
-    "question": "Việc thành lập Đảng Cộng sản Việt Nam năm 1930 có ý nghĩa gì?",
+    "question": "Theo Hồ Chí Minh, cách mạng xã hội chủ nghĩa phải tiến hành đồng thời với cách mạng nào?",
     "options": [
-      "Thống nhất các tổ chức cộng sản và mở ra thời kỳ cách mạng mới",
-      "Kết thúc mọi phong trào yêu nước khác",
-      "Chỉ nhằm cải thiện đời sống công nhân",
-      "Tách rời mục tiêu độc lập dân tộc với chủ nghĩa xã hội"
+      "Cách mạng dân tộc dân chủ nhân dân",
+      "Cách mạng tư sản",
+      "Cách mạng văn hoá",
+      "Cách mạng giai cấp"
     ],
     "answer": 0,
-    "explanation": "Đảng Cộng sản Việt Nam ra đời thống nhất các tổ chức cộng sản, tạo ra đội tiền phong của giai cấp công nhân, lãnh đạo cách mạng Việt Nam theo con đường độc lập dân tộc gắn liền với chủ nghĩa xã hội."
+    "explanation": "Cách mạng xã hội chủ nghĩa phải tiến hành đồng thời với cách mạng dân tộc dân chủ nhân dân, nhằm đảm bảo sự phát triển toàn diện cho đất nước."
   },
   {
-    "question": "Tuyên ngôn độc lập năm 1945 thể hiện rõ nhất điều gì trong tư tưởng Hồ Chí Minh?",
+    "question": "Theo Hồ Chí Minh, con đường quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
     "options": [
-      "Đặt lợi ích quốc tế lên trên lợi ích dân tộc",
-      "Độc lập dân tộc là tối thượng, gắn với mục tiêu xây dựng xã hội công bằng, dân chủ",
-      "Chỉ tập trung vào vấn đề kinh tế",
-      "Xóa bỏ mọi hợp tác quốc tế"
+      "Quá độ kết hợp nhiều hình thức",
+      "Quá độ gián tiếp",
+      "Quá độ trực tiếp",
+      "Quá độ gián tiếp cụ thể"
+    ],
+    "answer": 0,
+    "explanation": "Con đường quá độ lên chủ nghĩa xã hội ở Việt Nam là quá độ kết hợp nhiều hình thức, phản ánh sự linh hoạt trong việc áp dụng lý thuyết vào thực tiễn."
+  },
+  {
+    "question": "Theo tư tưởng Hồ Chí Minh, mục tiêu hàng đầu trong đấu tranh giành độc lập dân tộc là gì?",
+    "options": [
+      "Một mục tiêu của dân tộc",
+      "Một mục tiêu hàng đầu",
+      "Mục tiêu đầu tiên của dân tộc",
+      "Thực chất của vấn đề dân tộc"
     ],
     "answer": 1,
-    "explanation": "Tuyên ngôn độc lập khẳng định quyền tự do, độc lập của dân tộc Việt Nam đồng thời thể hiện khát vọng xây dựng một nước Việt Nam dân chủ, tự do, hạnh phúc - nền tảng của chủ nghĩa xã hội."
+    "explanation": "Mục tiêu hàng đầu trong tư tưởng Hồ Chí Minh là giành độc lập dân tộc, thể hiện sự ưu tiên cao nhất trong cuộc đấu tranh."
   },
   {
-    "question": "Trong giai đoạn 1951–1969, Hồ Chí Minh nhấn mạnh điều gì khi xây dựng CNXH ở Việt Nam?",
+    "question": "Nội dung cốt lõi của vấn đề dân tộc thuộc địa theo Hồ Chí Minh là gì?",
     "options": [
-      "Hy sinh độc lập dân tộc để nhận viện trợ",
-      "Coi thường hợp tác quốc tế",
-      "Xây dựng CNXH trên nền tảng độc lập dân tộc và chủ động hội nhập",
-      "Tách rời phát triển kinh tế với bảo vệ chủ quyền"
+      "Độc lập dân tộc",
+      "Dân tộc được tự do",
+      "Đánh đế quốc",
+      "Nhà nước"
     ],
-    "answer": 2,
-    "explanation": "Hồ Chí Minh luôn khẳng định xây dựng chủ nghĩa xã hội phải dựa trên nền tảng độc lập, tự chủ, đồng thời chủ động hội nhập và hợp tác quốc tế để phát triển đất nước."
+    "answer": 0,
+    "explanation": "Nội dung cốt lõi là độc lập dân tộc, thể hiện khát vọng tự do và quyền tự quyết của các dân tộc."
   },
   {
-    "question": "Theo tư tưởng Hồ Chí Minh, độc lập tự chủ và thu hút đầu tư nước ngoài (FDI) có mâu thuẫn không?",
+    "question": "Hồ Chí Minh thấy rõ sức mạnh của chủ nghĩa dân tộc của các dân tộc thuộc địa là gì?",
     "options": [
-      "Có, vì FDI luôn làm mất chủ quyền",
-      "Không, nếu thu hút FDI gắn với bảo vệ chủ quyền và định hướng phát triển bền vững",
-      "Không, vì chỉ cần tăng trưởng kinh tế là đủ",
-      "Có, nên từ chối mọi hình thức hợp tác quốc tế"
+      "Chủ nghĩa quốc tế chân chính",
+      "Chủ nghĩa dân tộc cực đoan",
+      "Chủ nghĩa xã hội",
+      "Chủ nghĩa yêu nước chân chính"
     ],
-    "answer": 1,
-    "explanation": "Tư tưởng Hồ Chí Minh cho rằng hội nhập và thu hút FDI là cần thiết, nhưng phải đảm bảo độc lập, tự chủ, gắn với định hướng phát triển bền vững và lợi ích dân tộc."
+    "answer": 3,
+    "explanation": "Hồ Chí Minh coi chủ nghĩa yêu nước chân chính là sức mạnh chiến đấu và thắng lợi trước mọi thế lực ngoại xâm."
   },
   {
-    "question": "Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội nhấn mạnh điều nào sau đây?",
+    "question": "Những đặc điểm nào sau đây thể hiện tinh thần của dân tộc Việt Nam trong sản xuất và chiến đấu?",
     "options": [
-      "Độc lập dân tộc tách rời xây dựng CNXH",
-      "Chỉ cần độc lập chính trị, không cần cải tạo xã hội",
-      "Độc lập dân tộc gắn liền với con đường CNXH để phát triển bền vững",
-      "Ưu tiên phát triển kinh tế thị trường thuần túy"
-    ],
-    "answer": 2,
-    "explanation": "Hồ Chí Minh khẳng định độc lập dân tộc phải gắn liền với chủ nghĩa xã hội - chỉ có chủ nghĩa xã hội mới đảm bảo độc lập thực sự và phát triển bền vững cho đất nước."
-  },
-  {
-    "question": "Trong chiến lược phát triển hiện nay, tư tưởng Hồ Chí Minh gợi mở hướng đi nào cho Việt Nam?",
-    "options": [
-      "Đóng cửa, tự cung tự cấp",
-      "Hội nhập quốc tế sâu rộng nhưng vẫn giữ vững độc lập, tự chủ",
-      "Phụ thuộc hoàn toàn vào các tập đoàn nước ngoài",
-      "Tách rời phát triển kinh tế với tiến bộ xã hội"
+      "Chỉ cần cù và dũng cảm",
+      "Cần cù, dũng cảm, thông minh, sáng tạo",
+      "Chỉ dũng cảm và sáng tạo",
+      "Chỉ thông minh và sáng tạo"
     ],
     "answer": 1,
-    "explanation": "Tư tưởng Hồ Chí Minh định hướng Việt Nam hội nhập quốc tế sâu rộng, đa phương hóa, đa dạng hóa quan hệ đối ngoại nhưng luôn giữ vững độc lập, tự chủ và bản sắc dân tộc."
-  },
-  {
-    "question": "Theo tư tưởng Hồ Chí Minh, yếu tố trung tâm của sự nghiệp độc lập dân tộc và CNXH là:",
-    "options": [
-      "Vũ khí và sức mạnh quân sự",
-      "Tài nguyên thiên nhiên",
-      "Con người, thông qua giáo dục và phát triển nguồn nhân lực",
-      "Nguồn vốn vay nước ngoài"
-    ],
-    "answer": 2,
-    "explanation": "Hồ Chí Minh luôn coi con người là yếu tố quyết định mọi thắng lợi. Người nhấn mạnh 'Vì lợi ích mười năm phải trồng cây, vì lợi ích trăm năm phải trồng người' - giáo dục và phát triển con người là then chốt."
+    "explanation": "Cần cù, dũng cảm, thông minh và sáng tạo là những đặc điểm nổi bật thể hiện tinh thần dân tộc Việt Nam trong mọi lĩnh vực."
   }
 ]
