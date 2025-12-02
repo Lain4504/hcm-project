@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import timelineData from '../../data/timeline.json';
 import contentData from '../../data/content.json';
 import { Button } from '../../components/ui/button';
+import { TextToSpeech } from '../../components/TextToSpeech';
 import tuyenNgonDocLap from '../../assets/tuyen-ngon-doc-lap.jpg';
 
 export async function getStaticPaths() {
@@ -69,11 +70,24 @@ if (!entry || !article) {
 
   <section class="bg-background">
     <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-[3fr,2fr] md:py-16">
-      <article class="prose prose-sm max-w-none text-foreground prose-p:mb-4 prose-p:mt-0 prose-headings:mt-6 prose-headings:mb-3 prose-strong:text-foreground">
-        {article.paragraphs?.map((paragraph: string, idx: number) => (
-          <p key={idx}>{paragraph}</p>
-        ))}
-      </article>
+      <div class="space-y-6">
+        <!-- Text-to-Speech Controls -->
+        <div class="flex items-center justify-between border-b border-[color:var(--border)] pb-4">
+          <h2 class="text-lg font-semibold text-foreground">Nội dung chi tiết</h2>
+          <TextToSpeech 
+            client:load 
+            text={article.paragraphs?.join(' ') || ''} 
+            title={entry.title}
+          />
+        </div>
+        
+        <!-- Article Content -->
+        <article class="prose prose-sm max-w-none text-foreground prose-p:mb-4 prose-p:mt-0 prose-headings:mt-6 prose-headings:mb-3 prose-strong:text-foreground">
+          {article.paragraphs?.map((paragraph: string, idx: number) => (
+            <p key={idx}>{paragraph}</p>
+          ))}
+        </article>
+      </div>
     </div>
   </section>
 </BaseLayout>
