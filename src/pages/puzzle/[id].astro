@@ -7,6 +7,7 @@ import chuNghiaXaHoi from "../../assets/puzzle/chu-nghia-xa-hoi.png";
 import hoaBinhTuChu from "../../assets/puzzle/hoa-binh-tu-chu.jpg";
 import kinhTe from "../../assets/puzzle/kinh-te.jpg";
 import giaoDuc from "../../assets/puzzle/giao-duc.jpg";
+import khoaHocCongNghe from "../../assets/puzzle/khoa-hoc-cong-nghe.jpg";
 
 export async function getStaticPaths() {
   const list = puzzles as any[];
@@ -25,6 +26,7 @@ const imageMap: Record<string, any> = {
   "hoa-binh-tu-chu": hoaBinhTuChu,
   "kinh-te": kinhTe,
   "giao-duc": giaoDuc,
+  "khoa-hoc-cong-nghe": khoaHocCongNghe,
 };
 
 const image = imageMap[id];
