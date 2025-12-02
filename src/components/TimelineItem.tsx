@@ -101,9 +101,6 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ entry, index }) => {
         <div className="ml-16 md:ml-0 md:pr-12">
           <article className={cardClasses}>
             <CardHeader className="flex flex-col gap-1 px-0 pb-3 pt-0">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--vn-red-soft)]/90">
-                Mốc tư tưởng
-              </p>
               <CardTitle className="text-base font-semibold text-[color:var(--foreground)] sm:text-lg">
                 {entry.title}
               </CardTitle>
@@ -129,9 +126,6 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ entry, index }) => {
         <div className="ml-16 md:col-start-2 md:ml-0 md:pl-12">
           <article className={cardClasses}>
             <CardHeader className="flex flex-col gap-1 px-0 pb-3 pt-0">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--vn-red-soft)]/90">
-                Mốc tư tưởng
-              </p>
               <CardTitle className="text-base font-semibold text-[color:var(--foreground)] sm:text-lg">
                 {entry.title}
               </CardTitle>

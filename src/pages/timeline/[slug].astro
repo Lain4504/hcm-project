@@ -25,37 +25,68 @@ if (!entry || !article) {
 ---
 
 <BaseLayout title={entry.title}>
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)] md:min-h-[420px]">
+  <!-- Hero Section - Minimal with just title -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#1a0000] via-[#210000] to-background text-[color:var(--vn-yellow-soft)]">
     <div class="pointer-events-none absolute inset-0">
-      <!-- Background image -->
       <img 
         src={tuyenNgonDocLap.src} 
         alt="Tuyên ngôn độc lập" 
         class="h-full w-full object-cover opacity-80"
       />
-      <!-- Overlay để text dễ đọc -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/50" />
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.12),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.4),transparent_60%)]" />
     </div>
     
-    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-32 md:pb-24 md:pt-40">
-      <Button asChild size="sm" variant="outline" class="mb-4 border-[color:var(--vn-yellow-soft)]/70 bg-[#260000]/80 text-[color:var(--vn-yellow-soft)] hover:bg-[#3a0000]">
-        <a href="/timeline">← Quay lại Timeline</a>
+    <div class="relative mx-auto max-w-3xl px-4 pb-12 pt-24 md:pb-16 md:pt-32">
+      <!-- Back Button - Inside hero section -->
+      <Button asChild size="lg" variant="outline" class="group mb-8 border-[3px] border-[color:var(--vn-yellow-soft)] bg-gradient-to-r from-[#1a0000] to-[#2d0000] px-6 py-3 text-[color:var(--vn-yellow-soft)] shadow-[0_0_20px_rgba(245,230,99,0.3)] backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-[color:var(--vn-red-soft)] hover:bg-gradient-to-r hover:from-[color:var(--vn-red-soft)] hover:to-[#8b1a1a] hover:text-white hover:shadow-[0_0_30px_rgba(139,26,26,0.6)]">
+        <a href="/timeline" class="flex items-center gap-3">
+          <span class="text-2xl font-bold transition-transform group-hover:-translate-x-2">←</span>
+          <span class="text-base font-bold tracking-wide">Quay lại Timeline</span>
+        </a>
       </Button>
-      <div class="grid gap-6 md:grid-cols-[3fr,2fr] md:items-start">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
-            {entry.date}
+
+      <p class="mb-3 text-center text-4xl font-bold leading-tight tracking-tight text-[color:var(--vn-yellow-soft)] md:text-5xl lg:text-6xl">
+        {entry.date}
+      </p>
+
+      <h1 class="text-center text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
+        {entry.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Content Section - Description + Paragraphs + Image integrated -->
+  <section class="bg-background py-12 md:py-16">
+    <div class="mx-auto max-w-3xl px-4">
+      <!-- Text-to-Speech at top -->
+      <div class="mb-8 flex items-center justify-between">
+        <p class="text-sm text-muted-foreground"></p>
+        <TextToSpeech 
+          client:load 
+          text={article.paragraphs?.join(' ') || ''} 
+          title={entry.title}
+        />
+      </div>
+
+      <!-- Short description as lead paragraph -->
+      <p class="mb-8 text-xl leading-relaxed italic text-foreground first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:font-bold first-letter:not-italic first-letter:leading-[0.8] first-letter:text-[color:var(--vn-red-soft)] md:text-2xl">
+        {entry.short}
+      </p>
+      
+      <!-- Article content -->
+      <div class="space-y-6">
+        {article.paragraphs?.map((paragraph: string, idx: number) => (
+          <p key={idx} class="text-lg leading-relaxed text-justify text-foreground">
+            {paragraph}
           </p>
-          <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            {entry.title}
-          </h1>
-          <p class="mt-3 max-w-2xl text-sm text-[color:var(--vn-yellow-soft)]/90 md:text-base">
-            {entry.short}
-          </p>
-        </div>
-        {article.image && (
-          <div class="overflow-hidden rounded-2xl border border-[color:var(--vn-red-soft)]/45 bg-[#050000]/90 shadow-[0_0_40px_rgba(139,0,0,0.5)]">
+        ))}
+      </div>
+
+      <!-- Image at the end with caption -->
+      {article.image && (
+        <figure class="mt-10">
+          <div class="overflow-hidden rounded-xl">
             <img
               src={article.image}
               alt={entry.title}
@@ -63,31 +94,11 @@ if (!entry || !article) {
               loading="lazy"
             />
           </div>
-        )}
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-background">
-    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-[3fr,2fr] md:py-16">
-      <div class="space-y-6">
-        <!-- Text-to-Speech Controls -->
-        <div class="flex items-center justify-between border-b border-[color:var(--border)] pb-4">
-          <h2 class="text-lg font-semibold text-foreground">Nội dung chi tiết</h2>
-          <TextToSpeech 
-            client:load 
-            text={article.paragraphs?.join(' ') || ''} 
-            title={entry.title}
-          />
-        </div>
-        
-        <!-- Article Content -->
-        <article class="prose prose-sm max-w-none text-foreground prose-p:mb-4 prose-p:mt-0 prose-headings:mt-6 prose-headings:mb-3 prose-strong:text-foreground">
-          {article.paragraphs?.map((paragraph: string, idx: number) => (
-            <p key={idx}>{paragraph}</p>
-          ))}
-        </article>
-      </div>
+          <figcaption class="mt-3 text-center text-sm text-muted-foreground">
+            Ảnh: {article.title}
+          </figcaption>
+        </figure>
+      )}
     </div>
   </section>
 </BaseLayout>
