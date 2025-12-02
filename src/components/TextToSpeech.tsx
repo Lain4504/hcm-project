@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Button } from "./ui/button";
-import { Volume2, Play, Pause } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 
 interface TextToSpeechProps {
   text: string;
@@ -14,12 +14,9 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
   const [currentTime, setCurrentTime] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
   const [rate, setRate] = React.useState(1);
-  const [volume, setVolume] = React.useState(1);
-  const [showVolumeSlider, setShowVolumeSlider] = React.useState(false);
   const [showSpeedMenu, setShowSpeedMenu] = React.useState(false);
   const utteranceRef = React.useRef<SpeechSynthesisUtterance | null>(null);
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
-  const volumeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const speedTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   React.useEffect(() => {
@@ -46,10 +43,6 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
-      }
-      if (volumeTimeoutRef.current) {
-        clearTimeout(volumeTimeoutRef.current);
-        volumeTimeoutRef.current = null;
       }
       if (speedTimeoutRef.current) {
         clearTimeout(speedTimeoutRef.current);
@@ -194,7 +187,7 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
       utterance.lang = "vi-VN";
       utterance.rate = newRate;
       utterance.pitch = 1;
-      utterance.volume = volume;
+      utterance.volume = 1;
 
       // Ước tính lại thời lượng
       const estimatedDuration = estimateDuration(fullText, newRate);
@@ -278,66 +271,6 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
       <span className="text-sm font-medium text-red-600 min-w-[40px]">
         {formatTime(duration)}
       </span>
-
-      {/* Volume Control */}
-      <div
-        className="relative"
-        onMouseEnter={() => {
-          if (volumeTimeoutRef.current) {
-            clearTimeout(volumeTimeoutRef.current);
-          }
-          setShowVolumeSlider(true);
-        }}
-        onMouseLeave={() => {
-          volumeTimeoutRef.current = setTimeout(() => {
-            setShowVolumeSlider(false);
-          }, 300);
-        }}
-      >
-        <Volume2 className="h-5 w-5 text-gray-600 cursor-pointer transition-colors hover:text-red-600" />
-
-        {/* Volume Slider Popup */}
-        {showVolumeSlider && (
-          <div
-            className="absolute bottom-full left-1/2 mb-3 -translate-x-1/2 rounded-lg border border-red-200 bg-white p-3 shadow-xl"
-            onMouseEnter={() => {
-              if (volumeTimeoutRef.current) {
-                clearTimeout(volumeTimeoutRef.current);
-              }
-              setShowVolumeSlider(true);
-            }}
-            onMouseLeave={() => {
-              volumeTimeoutRef.current = setTimeout(() => {
-                setShowVolumeSlider(false);
-              }, 300);
-            }}
-          >
-            <div className="flex items-center gap-3">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={volume * 100}
-                onChange={(e) => {
-                  const newVolume = Number(e.target.value) / 100;
-                  setVolume(newVolume);
-                  // Áp dụng volume ngay lập tức cho utterance đang phát
-                  if (utteranceRef.current) {
-                    utteranceRef.current.volume = newVolume;
-                  }
-                }}
-                className="h-2 w-24 cursor-pointer appearance-none rounded-full"
-                style={{
-                  background: `linear-gradient(to right, #ef4444 0%, #ef4444 ${volume * 100}%, #fecaca ${volume * 100}%, #fecaca 100%)`
-                }}
-              />
-              <span className="text-xs font-semibold text-red-600 min-w-[35px]">
-                {Math.round(volume * 100)}%
-              </span>
-            </div>
-          </div>
-        )}
-      </div>
 
       {/* Speed Control */}
       <div
