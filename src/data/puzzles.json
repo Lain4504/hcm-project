@@ -1,13 +1,56 @@
 [
   {
-    "id": "dien-bien-phu-1954",
-    "imageId": "dien-bien-phu-1954",
-    "title": "Chiến thắng Điện Biên Phủ",
-    "shortDescription": "Puzzle 3x3 về chiến thắng lịch sử Điện Biên Phủ năm 1954.",
-    "description": "Chiến thắng Điện Biên Phủ (7/5/1954) là đỉnh cao của nghệ thuật quân sự Việt Nam, đánh dấu bước ngoặt quan trọng trong cuộc kháng chiến chống thực dân Pháp, làm rung chuyển dư luận thế giới và góp phần đi tới Hiệp định Genève năm 1954.",
-    "source": "Lịch sử Việt Nam",
+    "id": "ban-do-viet-nam",
+    "imageId": "ban-do-viet-nam",
+    "title": "Độc lập dân tộc",
+    "shortDescription": "Khám phá những yếu tố cốt lõi làm nên sức mạnh và giá trị thiêng liêng của độc lập dân tộc.",
+    "description": "Độc lập dân tộc là mục tiêu tối cao và giá trị thiêng liêng nhất trong tư tưởng Hồ Chí Minh, là điều kiện tiên quyết để phát triển xã hội. Từ ngày Bác Hồ đọc Tuyên ngôn Độc lập năm 1945, độc lập dân tộc gắn liền với chủ quyền lãnh thổ toàn vẹn, được thể hiện rõ nét qua bản đồ Việt Nam với hai quần đảo Hoàng Sa và Trường Sa. Bảo vệ độc lập, chủ quyền và toàn vẹn lãnh thổ là trách nhiệm và nghĩa vụ thiêng liêng của mỗi người dân Việt Nam, là nền tảng để xây dựng đất nước phồn vinh, hướng tới mục tiêu dân giàu, nước mạnh.",
+    "source": "Bản đồ Việt Nam",
+    "difficulty": "3x3"
+  },
+  {
+    "id": "chu-nghia-xa-hoi",
+    "imageId": "chu-nghia-xa-hoi",
+    "title": "Chủ nghĩa xã hội",
+    "shortDescription": "Tìm hiểu con đường xây dựng xã hội công bằng, dân chủ, văn minh theo tư tưởng Hồ Chí Minh.",
+    "description": "Chủ nghĩa xã hội là mục tiêu phát triển bền vững trong tư tưởng Hồ Chí Minh, hướng tới một xã hội công bằng, dân giàu, nước mạnh. Đây là hệ thống kinh tế - xã hội dựa trên sự sở hữu chung về các phương tiện sản xuất, phân phối hàng hóa và dịch vụ theo nhu cầu của nhân dân. Chủ nghĩa xã hội được xây dựng trên nền tảng bình đẳng, tự do và công bằng xã hội, với khát vọng tạo ra một xã hội không phân biệt giai cấp, mọi người cùng hưởng thụ thành quả lao động và phát triển toàn diện.",
+    "source": "Chủ nghĩa xã hội",
+    "difficulty": "3x3"
+  },
+  {
+    "id": "hoa-binh-tu-chu",
+    "imageId": "hoa-binh-tu-chu",
+    "title": "Hòa bình và tự chủ",
+    "shortDescription": "Lý giải tư tưởng hòa bình, độc lập và tự chủ trong đường lối đối ngoại của Việt Nam.",
+    "description": "Hòa bình và tự chủ là chiến lược đối ngoại quan trọng trong tư tưởng Hồ Chí Minh, nhằm bảo vệ đất nước và phát triển kinh tế - xã hội. Đây là khái niệm then chốt trong quan hệ quốc tế, thể hiện sự độc lập và tự do của quốc gia trong việc quyết định chính sách đối ngoại mà không bị can thiệp từ bên ngoài. Hòa bình và tự chủ không phải là sự xa lánh quan hệ quốc tế, mà là sự tự tin, khả năng tự bảo vệ bản thân và chủ động hội nhập, góp phần duy trì hòa bình, ổn định và phát triển bền vững của đất nước.",
+    "source": "Chính sách đối ngoại Việt Nam",
+    "difficulty": "3x3"
+  },
+  {
+    "id": "kinh-te",
+    "imageId": "kinh-te",
+    "title": "Phát triển kinh tế và thu hút đầu tư",
+    "shortDescription": "Khám phá vai trò của kinh tế và đầu tư trong củng cố độc lập dân tộc và hiện đại hóa đất nước.",
+    "description": "Phát triển kinh tế là phương thức then chốt trong tư tưởng Hồ Chí Minh để thực hiện chủ nghĩa xã hội và củng cố độc lập dân tộc. Bác nhấn mạnh tầm quan trọng của việc xây dựng một nền kinh tế đa dạng, bền vững và hội nhập quốc tế, hướng tới mục tiêu dân giàu, nước mạnh. Thu hút đầu tư nước ngoài là công cụ hỗ trợ quan trọng, không chỉ giúp tăng cường nguồn lực tài chính mà còn thúc đẩy chuyển giao công nghệ, nâng cao năng lực sản xuất và tạo ra nhiều cơ hội việc làm. Phát triển kinh tế vững mạnh chính là nền tảng để bảo vệ độc lập dân tộc và xây dựng xã hội chủ nghĩa, góp phần nâng cao đời sống nhân dân và phát triển bền vững đất nước.",
+    "source": "Phát triển kinh tế Việt Nam",
+    "difficulty": "3x3"
+  },
+  { 
+    "id": "giao-duc",
+    "imageId": "giao-duc",
+    "title": "Giáo dục và con người",
+    "shortDescription": "Tìm hiểu vai trò của giáo dục và phát triển con người trong sự nghiệp xây dựng đất nước.",
+    "description": "Con người là trung tâm của tư tưởng Hồ Chí Minh - 'Vì con người, vì hạnh phúc của con người'. Giáo dục và đào tạo là phương thức then chốt để nâng cao chất lượng nhân lực, phục vụ cho mục tiêu độc lập dân tộc và xây dựng chủ nghĩa xã hội. Giáo dục không chỉ trang bị kiến thức, kỹ năng mà còn nuôi dưỡng giá trị đạo đức cách mạng, tinh thần yêu nước, ý thức tự chủ và trách nhiệm công dân. Phát triển con người toàn diện chính là nền tảng để xây dựng xã hội văn minh, bền vững, nâng cao chất lượng cuộc sống và tạo nên tương lai tươi sáng cho đất nước.",
+    "source": "Giáo dục Việt Nam",
+    "difficulty": "3x3"
+  },
+  {
+    "id": "khoa-hoc-cong-nghe",
+    "imageId": "khoa-hoc-cong-nghe",
+    "title": "Khoa học - công nghệ và kết nối quốc tế",
+    "shortDescription": "Khám phá vai trò của khoa học – công nghệ và hội nhập quốc tế trong phát triển bền vững.",
+    "description": "Hồ Chí Minh coi khoa học - công nghệ là công cụ then chốt để nâng cao năng lực quốc gia, phục vụ mục tiêu độc lập dân tộc và xây dựng chủ nghĩa xã hội. Bác nhấn mạnh tầm quan trọng của việc phát triển khoa học - công nghệ như động lực để hiện đại hóa đất nước, nâng cao năng suất lao động và chất lượng cuộc sống. Đồng thời, hợp tác quốc tế thông minh về khoa học - công nghệ là phương thức để Việt Nam tiếp cận công nghệ tiên tiến, học hỏi kinh nghiệm quốc tế, nhưng vẫn giữ vững tính tự chủ và độc lập. Kết nối quốc tế không chỉ tạo cơ hội hợp tác mà còn góp phần phát triển bền vững, xây dựng đất nước ngày càng giàu mạnh.",
+    "source": "Khoa học - công nghệ Việt Nam",
     "difficulty": "3x3"
   }
 ]
-
-
