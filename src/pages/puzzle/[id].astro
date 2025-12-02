@@ -2,7 +2,11 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PuzzleBoard from "../../components/PuzzleBoard.jsx";
 import puzzles from "../../data/puzzles.json";
-import dienBienPhu from "../../assets/puzzle/dien-bien-phu-1954.jpg";
+import banDoVietNam from "../../assets/puzzle/ban-do-viet-nam.jpg";
+import chuNghiaXaHoi from "../../assets/puzzle/chu-nghia-xa-hoi.png";
+import hoaBinhTuChu from "../../assets/puzzle/hoa-binh-tu-chu.jpg";
+import kinhTe from "../../assets/puzzle/kinh-te.jpg";
+import giaoDuc from "../../assets/puzzle/giao-duc.jpg";
 
 export async function getStaticPaths() {
   const list = puzzles as any[];
@@ -16,7 +20,11 @@ const puzzleList = puzzles as any[];
 const puzzle = puzzleList.find((p) => p.id === id);
 
 const imageMap: Record<string, any> = {
-  "dien-bien-phu-1954": dienBienPhu,
+  "ban-do-viet-nam": banDoVietNam,
+  "chu-nghia-xa-hoi": chuNghiaXaHoi,
+  "hoa-binh-tu-chu": hoaBinhTuChu,
+  "kinh-te": kinhTe,
+  "giao-duc": giaoDuc,
 };
 
 const image = imageMap[id];
