@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../components/ui/card';
 import content from '../data/content.json';
 import tthcm from '../assets/30.11tt-hcm.jpg';
 ---
@@ -46,6 +46,13 @@ import tthcm from '../assets/30.11tt-hcm.jpg';
             <span>Vào Game trắc nghiệm</span>
             <span class="inline-block transition-transform group-hover:translate-x-0.5">→</span>
           </a>
+          <a
+            href="/puzzle"
+            class="group inline-flex items-center gap-1.5 rounded-md bg-gradient-to-r from-[color:var(--vn-yellow-soft)] to-[#f5d547] border border-[color:var(--vn-yellow-soft)] px-4 py-2 text-sm font-semibold text-[#1a0000] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]"
+          >
+            <span>Vào Game ghép hình</span>
+            <span class="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+          </a>
         </div>
       </div>
 
@@ -62,6 +69,10 @@ import tthcm from '../assets/30.11tt-hcm.jpg';
                 <div>
           <p class="text-2xl font-bold text-[color:var(--vn-yellow-soft)]">Quiz</p>
           <p class="mt-1">củng cố kiến thức môn học</p>
+        </div>
+                <div>
+          <p class="text-2xl font-bold text-[color:var(--vn-yellow-soft)]">Puzzle</p>
+          <p class="mt-1">ghép hình tư tưởng Hồ Chí Minh</p>
         </div>
       </div>
     </div>
@@ -94,70 +105,103 @@ import tthcm from '../assets/30.11tt-hcm.jpg';
         ))}
       </div>
 
-      <div class="grid gap-6 md:grid-cols-3">
-        <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
-          <CardHeader>
+      <div class="action-button-cards grid gap-6 md:grid-cols-3 md:auto-rows-fr">
+        <Card class="action-button-card !flex !flex-col !gap-0 border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+          <CardHeader class="!pb-4">
             <CardTitle class="text-base">Timeline Tư tưởng Hồ Chí Minh</CardTitle>
           </CardHeader>
-          <CardContent class="space-y-3 text-sm text-muted-foreground">
+          <CardContent class="action-button-card-content !pb-0 space-y-2 text-sm text-muted-foreground">
             <p>
               Khám phá hành trình phát triển tư tưởng Hồ Chí Minh từ năm 1911 đến con đường độc lập dân tộc gắn với chủ nghĩa xã hội qua một timeline trực quan, dễ hiểu.
             </p>
+          </CardContent>
+          <CardFooter class="action-button-card-footer !pt-4 !mt-auto">
             <a 
               href="/timeline" 
-              class="mt-2 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-red-soft)] to-[color:var(--vn-red-dark)] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
+              class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-red-soft)] to-[color:var(--vn-red-dark)] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
               style="border: 1px solid var(--vn-red-soft);"
             >
               Xem Timeline →
             </a>
-          </CardContent>
+          </CardFooter>
         </Card>
 
-        <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
-          <CardHeader>
-            <CardTitle class="text-base">Game hỏi đáp lịch sử</CardTitle>
+        <Card class="action-button-card !flex !flex-col !gap-0 border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+          <CardHeader class="!pb-4">
+            <CardTitle class="text-base">Games tương tác</CardTitle>
           </CardHeader>
-          <CardContent class="space-y-3 text-sm text-muted-foreground">
+          <CardContent class="action-button-card-content !pb-0 space-y-2 text-sm text-muted-foreground">
             <p>
-              Trả lời câu hỏi, tích luỹ điểm số và thử thách bạn bè để xem ai hiểu rõ nhất về Điện Biên Phủ.
+              Trả lời câu hỏi trắc nghiệm hoặc thử thách với game ghép hình về tư tưởng Hồ Chí Minh. Tích luỹ điểm số và thử thách bạn bè để xem ai hiểu rõ nhất!
             </p>
+          </CardContent>
+          <CardFooter class="action-button-card-footer !pt-4 !mt-auto">
             <a 
               href="/game" 
-              class="mt-2 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-yellow-soft)] to-[#f5d547] px-4 py-2 text-sm font-semibold text-[#1a0000] shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
-              style="border: 1px solid var(--vn-yellow-soft);"
+              class="flex-1 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-yellow-soft)] to-[#f5d547] px-4 py-2 text-sm font-semibold text-[#1a0000] shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
+              style="border: 1px solid var(--vn-yellow-soft); margin-right: 0.75rem;"
             >
-              Chơi ngay →
+              Chơi quiz →
             </a>
-          </CardContent>
+            <a 
+              href="/puzzle" 
+              class="flex-1 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-red-soft)] to-[color:var(--vn-red-dark)] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
+              style="border: 1px solid var(--vn-red-soft); margin-left: 0.75rem;"
+            >
+              Chơi puzzle →
+            </a>
+          </CardFooter>
         </Card>
 
-        <Card class="border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
-          <CardHeader>
+        <Card class="action-button-card !flex !flex-col !gap-0 border-[color:var(--vn-red-soft)]/20 bg-[color:var(--card)]">
+          <CardHeader class="!pb-4">
             <CardTitle class="text-base">Trải nghiệm AR &amp; 3D</CardTitle>
           </CardHeader>
-          <CardContent class="space-y-3 text-sm text-muted-foreground">
+          <CardContent class="action-button-card-content !pb-0 space-y-2 text-sm text-muted-foreground">
             <p>
-              Quét mã QR để xem mô hình trận địa trong không gian thực, kết hợp cùng Gallery 3D chuyên sâu mà bạn đã có.
+              Quét QR để mở mô hình trận địa ngay trong không gian của bạn, sau đó tiếp tục xem Gallery 3D với góc nhìn chuyên sâu đã được sưu tầm sẵn.
             </p>
-            <div class="flex gap-2 mt-2">
-              <a 
-                href="/ar-scan" 
-                class="flex-1 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-red-soft)] to-[color:var(--vn-red-dark)] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
-                style="border: 1px solid var(--vn-red-soft);"
-              >
-                Quét QR
-              </a>
-              <a 
-                href="/gallery" 
-                class="flex-1 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-yellow-soft)] to-[#f5d547] px-4 py-2 text-sm font-semibold text-[#1a0000] shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
-                style="border: 1px solid var(--vn-yellow-soft);"
-              >
-                Gallery 3D
-              </a>
-            </div>
           </CardContent>
+          <CardFooter class="action-button-card-footer !pt-4 !mt-auto">
+            <a 
+              href="/ar-scan" 
+              class="flex-1 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-red-soft)] to-[color:var(--vn-red-dark)] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
+              style="border: 1px solid var(--vn-red-soft); margin-right: 0.75rem;"
+            >
+              Quét QR →
+            </a>
+            <a 
+              href="/gallery" 
+              class="flex-1 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[color:var(--vn-yellow-soft)] to-[#f5d547] px-4 py-2 text-sm font-semibold text-[#1a0000] shadow-md transition-all hover:scale-[1.02] hover:shadow-lg"
+              style="border: 1px solid var(--vn-yellow-soft); margin-left: 0.75rem;"
+            >
+              Gallery 3D →
+            </a>
+          </CardFooter>
         </Card>
       </div>
+
+      <style>
+        .action-button-cards {
+          grid-auto-rows: 1fr;
+        }
+        .action-button-card {
+          height: 100%;
+          min-height: 320px;
+        }
+        .action-button-card-content {
+          flex: 1 1 0%;
+          min-height: auto;
+        }
+        .action-button-card-footer {
+          margin-top: auto;
+        }
+        @media (min-width: 768px) {
+          .action-button-card-content {
+            min-height: 150px;
+          }
+        }
+      </style>
     </div>
   </section>
 </BaseLayout>

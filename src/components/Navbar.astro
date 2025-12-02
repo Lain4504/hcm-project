@@ -7,6 +7,7 @@ const isOnTimeline = currentPath.startsWith("/timeline");
 const isOnGame = currentPath.startsWith("/game") || currentPath.startsWith("/puzzle");
 const isOnARScan = currentPath.startsWith("/ar-scan");
 const isOnGallery = currentPath.startsWith("/gallery");
+const isOnAIUse = currentPath.startsWith("/ai-use");
 ---
 
 <header
@@ -74,7 +75,7 @@ const isOnGallery = currentPath.startsWith("/gallery");
             1920 – Chọn con đường cách mạng vô sản
           </a>
           <a
-            href="/timeline/1930-thanh-lap-dang-con-san-vn"
+            href="/timeline/1930-thanh-lap-dang-cong-san-vn"
             class="block px-4 py-2 text-sm hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
           >
             1930 – Thành lập Đảng Cộng sản Việt Nam
@@ -150,6 +151,16 @@ const isOnGallery = currentPath.startsWith("/gallery");
       >
         Gallery 3D
       </a>
+      <a
+        href="/ai-use"
+        class={`transition-colors ${
+          isOnAIUse
+            ? "text-[color:var(--vn-yellow)]"
+            : "text-[color:var(--vn-yellow-soft)] hover:text-[color:var(--vn-yellow)]"
+        }`}
+      >
+        AI Usage
+      </a>
     </nav>
 
     <!-- Bỏ các nút Timeline HCM202 & Vào Game để tránh trùng lặp, giúp header gọn hơn trên mọi kích cỡ màn hình -->
@@ -219,6 +230,7 @@ const isOnGallery = currentPath.startsWith("/gallery");
       </div>
       <a href="/ar-scan" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">AR Scan</a>
       <a href="/gallery" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">Gallery 3D</a>
+      <a href="/ai-use" class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-soft)]/70">AI Usage</a>
     </div>
   </nav>
 </header>
@@ -291,7 +303,7 @@ const isOnGallery = currentPath.startsWith("/gallery");
           1920 – Chọn con đường cách mạng vô sản
         </a>
         <a
-          href="/timeline/1930-thanh-lap-dang-con-san-vn"
+          href="/timeline/1930-thanh-lap-dang-cong-san-vn"
           class="block px-4 py-2 text-xs hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
         >
           1930 – Thành lập Đảng Cộng sản Việt Nam
@@ -387,6 +399,20 @@ const isOnGallery = currentPath.startsWith("/gallery");
       </span>
       <span>Gallery</span>
     </a>
+
+    <a
+      href="/ai-use"
+      class={`flex flex-shrink-0 items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
+        isOnAIUse
+          ? "bg-[color:var(--vn-yellow)] text-[#5C0000]"
+          : "text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)]/10 hover:text-[color:var(--vn-yellow)]"
+      }`}
+    >
+      <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current">
+        <span class="h-2 w-2 rounded-full bg-current" />
+      </span>
+      <span>AI Usage</span>
+    </a>
   </nav>
 </div>
 
@@ -441,7 +467,7 @@ const isOnGallery = currentPath.startsWith("/gallery");
         1920 – Chọn con đường cách mạng vô sản
       </a>
       <a
-        href="/timeline/1930-thanh-lap-dang-con-san-vn"
+        href="/timeline/1930-thanh-lap-dang-cong-san-vn"
         class="block rounded-md px-3 py-2 text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-red-dark)]/80 hover:text-[color:var(--vn-yellow)]"
       >
         1930 – Thành lập Đảng Cộng sản Việt Nam

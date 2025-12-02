@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
 import qrHcm from '../assets/ar/ar_qr_code_hcm.png';
 import hcmImage from '../assets/ar/hcm_image.png';
 import linhHonCachMangVietNam from "../assets/hq720.jpg";
@@ -24,14 +23,15 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
     <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-32 md:pb-24 md:pt-40">
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--vn-yellow-soft)]/90">
-          Hướng dẫn AR
+          Hướng dẫn AR với Artivive
         </p>
         <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-          Quét mã QR để mở không gian AR
+          Quét tranh để xem video AR xuất hiện ngay trên hình
         </h1>
         <p class="mt-3 max-w-xl text-sm text-[color:var(--vn-yellow-soft)]/90 md:text-base">
-          Sử dụng điện thoại hoặc máy tính bảng để quét mã QR dưới đây, sau đó mở liên kết AR để xem mô hình minh họa
-          tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội trong không gian thực.
+          Trải nghiệm AR này được thiết kế chủ yếu cho bối cảnh bạn đang đứng trước màn hình máy tính hoặc bức tranh in tại
+          triển lãm. Dùng ứng dụng Artivive trên điện thoại để quét bức tranh tương ứng: khi camera nhận diện được hình,
+          video AR sẽ hiển thị chồng lên chính bức tranh đó, tạo cảm giác nội dung sống động ngay trong không gian trước mắt bạn.
         </p>
       </div>
     </div>
@@ -42,7 +42,7 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
       <div class="mx-auto w-full">
         <Card class="w-full border-[color:var(--vn-red-soft)]/25 bg-[color:var(--card)] px-3 py-4 sm:px-5 sm:py-5">
           <CardHeader>
-            <CardTitle class="text-base">2 bước để trải nghiệm AR</CardTitle>
+            <CardTitle class="text-base">2 bước để trải nghiệm AR với Artivive</CardTitle>
           </CardHeader>
           <CardContent class="space-y-6 text-sm text-muted-foreground">
             <div class="flex flex-col items-center gap-4 md:flex-row md:items-start">
@@ -52,7 +52,8 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
                     Bước 1
                   </p>
                   <p class="mt-1">
-                    Mở ứng dụng camera hoặc ứng dụng quét QR trên điện thoại, hướng camera vào mã QR bên cạnh.
+                    Dùng điện thoại quét mã QR bên cạnh để tải hoặc mở ứng dụng <span class="font-semibold">Artivive</span>.
+                    Bạn cũng có thể tìm từ khóa <span class="font-semibold">"Artivive"</span> trên App Store hoặc Google Play.
                   </p>
                 </div>
                 <div>
@@ -60,8 +61,8 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
                     Bước 2
                   </p>
                   <p class="mt-1">
-                    Nhấn vào liên kết hiện ra trên màn hình để mở trang AR. Chọn nút &quot;Bật AR&quot; để đưa mô hình
-                    vào không gian xung quanh bạn.
+                    Mở ứng dụng Artivive, hướng camera vào đúng bức tranh trong triển lãm. Khi hình được nhận diện, video
+                    AR sẽ tự động xuất hiện và phát ngay trên bề mặt bức tranh.
                   </p>
                 </div>
               </div>
@@ -76,14 +77,107 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
                     />
                   </div>
                   <p class="text-[0.7rem] text-muted-foreground text-center">
-                    Dùng điện thoại quét mã QR này để mở trang
-                    <code class="ml-1 rounded bg-[color:var(--vn-yellow-soft)]/40 px-1 text-[0.7rem]">/ar</code>.
+                    Dùng điện thoại quét mã QR này để tải / mở ứng dụng Artivive, sau đó dùng app để quét bức tranh tương ứng.
                   </p>
                 </div>
               </div>
             </div>
           </CardContent>
         </Card>
+
+        <!-- Hướng dẫn riêng cho trường hợp đang mở web trên điện thoại -->
+        <div class="mt-6">
+          <Card class="w-full border-[color:var(--vn-red-soft)]/25 bg-[color:var(--card)] px-3 py-4 sm:px-5 sm:py-5">
+            <CardHeader class="pb-2">
+              <CardTitle class="text-sm">
+                Đang mở website bằng điện thoại mà chưa cài Artivive?
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="space-y-3 text-sm text-muted-foreground">
+              <p>
+                Nếu bạn đang xem trang web này trên điện thoại, bạn có thể nhấn trực tiếp vào nút bên dưới để tải ứng dụng
+                <span class="font-semibold text-foreground">Artivive</span>, không cần phải quét lại mã QR.
+              </p>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <a
+                  href="https://apps.apple.com/app/artivive/id1188737494"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="group w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-white/25 bg-black/30 px-3 py-1.5 text-[0.8rem] font-medium text-[color:var(--vn-yellow-soft)]/85 hover:bg-black/50 hover:border-white/40 transition-colors"
+                >
+                  <span class="flex items-center gap-3">
+                    <span class="flex h-6 w-6 items-center justify-center rounded-lg bg-white/5">
+                      <!-- Icon App Store tối giản -->
+                      <svg
+                        aria-hidden="true"
+                        class="h-4 w-4 text-[color:var(--vn-yellow-soft)]/90"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-5.16 3.09c.38-.44.9-.76 1.46-.82.06.56-.15 1.12-.5 1.55-.35.43-.93.76-1.5.71-.06-.54.2-1.12.54-1.44ZM17.5 18.5c-.47.7-.97 1.4-1.74 1.41-.76.01-1-.46-1.87-.46-.87 0-1.14.45-1.86.47-.74.03-1.3-.76-1.78-1.45-.97-1.4-1.71-3.95-.72-5.67.5-.86 1.39-1.41 2.36-1.43.74-.01 1.44.5 1.87.5.43 0 1.28-.62 2.16-.53.37.02 1.42.15 2.09 1.16-.05.03-1.25.73-1.23 2.18.02 1.73 1.51 2.3 1.53 2.31Z" />
+                      </svg>
+                    </span>
+                    <span class="flex flex-col items-start leading-tight">
+                      <span class="text-[0.6rem] uppercase tracking-[0.16em] text-[color:var(--vn-yellow-soft)]/60">
+                        Tải trên
+                      </span>
+                      <span class="text-[0.9rem] font-semibold">
+                        App Store (iOS)
+                      </span>
+                    </span>
+                  </span>
+                </a>
+
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.artivive"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="group w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-900/35 px-3 py-1.5 text-[0.8rem] font-medium text-emerald-50/90 hover:bg-emerald-900/55 hover:border-emerald-300/60 transition-colors"
+                >
+                  <span class="flex items-center gap-3">
+                    <span class="flex h-6 w-6 items-center justify-center rounded-lg bg-black/20">
+                      <!-- Icon Google Play tối giản -->
+                      <svg
+                        aria-hidden="true"
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3.6 2.2A1.5 1.5 0 0 0 3 3.5v17c0 .5.26.98.69 1.27.42.29.96.34 1.43.12l11.2-5.4-3.9-3.9-4.9-4.9-3.92-3.92Z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="m19.6 10.2-4.18-2.02-3.45 3.45 3.48 3.48 4.14-2a1.5 1.5 0 0 0 .01-2.7Z"
+                          fill="#4285F4"
+                        />
+                        <path
+                          d="m7.82 7.1 4.38 4.38 3.23-3.24-6.3-3.02-1.31 1.88Z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="m7.82 16.9 1.32 1.89 6.3-3.02-3.24-3.24-4.38 4.37Z"
+                          fill="#EA4335"
+                        />
+                      </svg>
+                    </span>
+                    <span class="flex flex-col items-start leading-tight">
+                      <span class="text-[0.6rem] uppercase tracking-[0.16em] text-emerald-100/70">
+                        Tải trên
+                      </span>
+                      <span class="text-[0.95rem] font-semibold">
+                        Google Play (Android)
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+              <p class="text-[0.8rem]">
+                Sau khi cài xong, chỉ cần mở ứng dụng Artivive và dùng camera trong app để quét bức tranh trong triển lãm,
+                video AR sẽ xuất hiện ngay trên hình.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
 
@@ -93,13 +187,14 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
         <div class="w-full max-w-2xl overflow-hidden rounded-xl border-2 border-[color:var(--vn-red-soft)]/40 bg-black/20 shadow-xl">
           <img
             src={hcmImage.src}
-            alt="Hình minh họa không gian AR HCM202 sau khi quét mã"
+            alt="Minh họa video AR hiển thị chồng lên bức tranh sau khi quét bằng Artivive"
             class="w-full h-auto object-contain max-h-[70vh]"
             loading="lazy"
           />
         </div>
         <p class="text-center text-sm text-muted-foreground max-w-2xl">
-          Hình minh họa mô hình AR hiển thị trong không gian sau khi bạn quét mã QR. Hãy quét mã QR ở trên để trải nghiệm.
+          Hình minh họa hiệu ứng AR: khi bạn dùng ứng dụng Artivive quét bức tranh, video sẽ được phủ lên chính bức tranh đó,
+          tạo cảm giác nội dung sống động ngay trong không gian thực.
         </p>
       </div>
     </div>
@@ -107,15 +202,17 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
     <div class="mx-auto max-w-6xl px-2 py-6 md:px-4">
       <div class="mx-auto w-full">
         <Card class="w-full border-[color:var(--vn-red-soft)]/25 bg-[color:var(--card)] px-3 py-4 sm:px-5 sm:py-5">
-          <CardContent class="space-y-6 text-sm text-muted-foreground">
-            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <p class="text-[0.75rem] text-muted-foreground">
-                Nếu đã mở website trên thiết bị di động, bạn có thể bỏ qua bước quét QR và nhấn nút dưới đây.
-              </p>
-              <Button asChild size="sm">
-                <a href="/ar">Trải nghiệm AR ngay</a>
-              </Button>
-            </div>
+          <CardContent class="space-y-4 text-sm text-muted-foreground">
+            <p class="text-[0.8rem]">
+              <span class="font-semibold text-foreground">Lưu ý về cách sử dụng AR:</span> Trải nghiệm AR với Artivive được thiết kế
+              để bạn xem tranh/bức ảnh trên màn hình máy tính hoặc bản in, sau đó dùng điện thoại để quét. Nếu bạn chỉ mở trang web
+              trên điện thoại, đây chủ yếu là trang hướng dẫn, không phải nơi hiển thị AR trực tiếp.
+            </p>
+            <ul class="list-disc pl-5 space-y-1 text-[0.8rem]">
+              <li>Mở hoặc cài đặt ứng dụng <span class="font-semibold">Artivive</span> trên điện thoại.</li>
+              <li>Đứng trước màn hình PC hoặc bức tranh in trong triển lãm, dùng app để quét đúng bức tranh.</li>
+              <li>Khi hình được nhận diện, video AR sẽ phát ngay trên hình bạn đang quét.</li>
+            </ul>
           </CardContent>
         </Card>
       </div>

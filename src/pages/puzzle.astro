@@ -2,6 +2,22 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import puzzles from "../data/puzzles.json";
 import hoChiMinh1 from "../assets/hcm1-16529275928651573705413-0-0-375-600-crop-16529276019091318892288.jpg";
+import banDoVietNam from "../assets/puzzle/ban-do-viet-nam.jpg";
+import chuNghiaXaHoi from "../assets/puzzle/chu-nghia-xa-hoi.png";
+import hoaBinhTuChu from "../assets/puzzle/hoa-binh-tu-chu.jpg";
+import kinhTe from "../assets/puzzle/kinh-te.jpg";
+import giaoDuc from "../assets/puzzle/giao-duc.jpg";
+import khoaHocCongNghe from "../assets/puzzle/khoa-hoc-cong-nghe.jpg";
+
+// Map puzzle IDs to their images
+const puzzleImages: Record<string, any> = {
+  "ban-do-viet-nam": banDoVietNam,
+  "chu-nghia-xa-hoi": chuNghiaXaHoi,
+  "hoa-binh-tu-chu": hoaBinhTuChu,
+  "kinh-te": kinhTe,
+  "giao-duc": giaoDuc,
+  "khoa-hoc-cong-nghe": khoaHocCongNghe,
+};
 ---
 
 <BaseLayout
@@ -42,15 +58,24 @@ import hoChiMinh1 from "../assets/hcm1-16529275928651573705413-0-0-375-600-crop-
   <section class="bg-background">
     <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
       <div class="grid gap-6 md:grid-cols-3">
-        {(puzzles as any[]).map((puzzle) => (
+        {(puzzles as any[]).map((puzzle) => {
+          const puzzleImage = puzzleImages[puzzle.id];
+          return (
           <a
             href={`/puzzle/${puzzle.id}`}
             class="group flex flex-col overflow-hidden rounded-2xl border border-[color:var(--vn-red-soft)]/15 bg-[color:var(--card)] shadow-sm transition hover:-translate-y-1 hover:border-[color:var(--vn-red-soft)]/40 hover:shadow-[0_18px_40px_rgba(139,0,0,0.2)]"
           >
             <div class="relative h-40 overflow-hidden bg-[#260000]/40">
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,230,99,0.35),transparent_55%),radial-gradient(circle_at_80%_120%,rgba(139,26,26,0.7),transparent_60%)]" />
+              {puzzleImage && (
+                <img 
+                  src={puzzleImage.src}
+                  alt={puzzle.title}
+                  class="absolute inset-0 h-full w-full object-cover opacity-60 transition group-hover:scale-105 group-hover:opacity-75"
+                />
+              )}
+              <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
               <div class="relative flex h-full items-center justify-center text-center px-4">
-                <p class="text-sm font-semibold text-[color:var(--vn-yellow-soft)] group-hover:text-[color:var(--vn-yellow)]">
+                <p class="text-sm font-semibold text-[color:var(--vn-yellow-soft)] drop-shadow-lg group-hover:text-[color:var(--vn-yellow)]">
                   {puzzle.title}
                 </p>
               </div>
@@ -70,7 +95,7 @@ import hoChiMinh1 from "../assets/hcm1-16529275928651573705413-0-0-375-600-crop-
               </div>
             </div>
           </a>
-        ))}
+        )})}
       </div>
     </div>
   </section>
