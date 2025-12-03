@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Button } from "./ui/button";
-import { Volume2, VolumeX, Pause, Play, Square } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 
 interface TextToSpeechProps {
   text: string;
@@ -11,7 +11,13 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
   const [isSupported, setIsSupported] = React.useState(false);
   const [isSpeaking, setIsSpeaking] = React.useState(false);
   const [isPaused, setIsPaused] = React.useState(false);
+  const [currentTime, setCurrentTime] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
+  const [rate, setRate] = React.useState(1);
+  const [showSpeedMenu, setShowSpeedMenu] = React.useState(false);
   const utteranceRef = React.useRef<SpeechSynthesisUtterance | null>(null);
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const speedTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   React.useEffect(() => {
     // Kiểm tra browser có hỗ trợ Web Speech API không
@@ -19,13 +25,65 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
       setIsSupported(true);
     }
 
-    return () => {
-      // Cleanup khi component unmount
+    // Dừng phát khi chuyển trang (beforeunload/pagehide)
+    const handlePageHide = () => {
       if (window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     };
+
+    window.addEventListener('beforeunload', handlePageHide);
+    window.addEventListener('pagehide', handlePageHide);
+
+    return () => {
+      // Cleanup khi component unmount - Dừng phát ngay lập tức
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      if (speedTimeoutRef.current) {
+        clearTimeout(speedTimeoutRef.current);
+        speedTimeoutRef.current = null;
+      }
+
+      // Remove event listeners
+      window.removeEventListener('beforeunload', handlePageHide);
+      window.removeEventListener('pagehide', handlePageHide);
+    };
   }, []);
+
+  // Dừng phát khi text hoặc title thay đổi (chuyển trang)
+  React.useEffect(() => {
+    // Dừng ngay lập tức khi text/title thay đổi
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setIsSpeaking(false);
+    setIsPaused(false);
+    setCurrentTime(0);
+    setDuration(0);
+  }, [text, title]);
+
+  const estimateDuration = (text: string, rate: number) => {
+    // Ước tính: ~150 từ/phút cho tiếng Việt ở tốc độ bình thường
+    const words = text.split(/\s+/).length;
+    const baseWordsPerMinute = 150;
+    const adjustedWPM = baseWordsPerMinute * rate;
+    return (words / adjustedWPM) * 60; // Convert to seconds
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
 
   const handleSpeak = () => {
     if (!isSupported || !text) return;
@@ -35,124 +93,233 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({ text, title }) => {
       window.speechSynthesis.resume();
       setIsPaused(false);
       setIsSpeaking(true);
+      if (intervalRef.current) {
+        intervalRef.current = setInterval(() => {
+          setCurrentTime(prev => prev + 0.1);
+        }, 100);
+      }
       return;
     }
 
-    // Nếu đang đọc, dừng lại
+    // Nếu đang đọc, pause lại
     if (isSpeaking) {
-      window.speechSynthesis.cancel();
+      window.speechSynthesis.pause();
+      setIsPaused(true);
       setIsSpeaking(false);
-      setIsPaused(false);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
       return;
     }
+
+    // Dừng bất kỳ utterance nào đang chạy
+    window.speechSynthesis.cancel();
 
     // Tạo utterance mới
     const utterance = new SpeechSynthesisUtterance();
-    
+
     // Kết hợp title và text
     const fullText = title ? `${title}. ${text}` : text;
     utterance.text = fullText;
-    
-    // Cấu hình giọng đọc
+
+    // Ước tính thời lượng
+    const estimatedDuration = estimateDuration(fullText, rate);
+    setDuration(estimatedDuration);
+    setCurrentTime(0);
+
+    // Cấu hình giọng đọc - volume luôn = 1, chúng ta sẽ control qua Audio API nếu cần
     utterance.lang = "vi-VN"; // Tiếng Việt
-    utterance.rate = 0.9; // Tốc độ đọc (0.1 - 10)
+    utterance.rate = rate; // Tốc độ đọc
     utterance.pitch = 1; // Cao độ giọng (0 - 2)
-    utterance.volume = 1; // Âm lượng (0 - 1)
+    utterance.volume = 1; // Luôn để max, control bằng cách khác
 
     // Event handlers
     utterance.onstart = () => {
       setIsSpeaking(true);
       setIsPaused(false);
+      intervalRef.current = setInterval(() => {
+        setCurrentTime(prev => prev + 0.1);
+      }, 100);
     };
 
     utterance.onend = () => {
       setIsSpeaking(false);
       setIsPaused(false);
+      setCurrentTime(0);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
 
     utterance.onerror = (event) => {
       console.error("Speech synthesis error:", event);
       setIsSpeaking(false);
       setIsPaused(false);
+      setCurrentTime(0);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
 
     utteranceRef.current = utterance;
     window.speechSynthesis.speak(utterance);
   };
 
-  const handlePause = () => {
-    if (!isSpeaking || isPaused) return;
-    window.speechSynthesis.pause();
-    setIsPaused(true);
-    setIsSpeaking(false);
+  const handleRateChange = (newRate: number) => {
+    setRate(newRate);
+    setShowSpeedMenu(false);
+
+    // Nếu đang phát, áp dụng tốc độ mới ngay lập tức
+    if (utteranceRef.current && (isSpeaking || isPaused)) {
+      // Lưu lại trạng thái hiện tại
+      const wasPlaying = isSpeaking;
+
+      // Dừng phát hiện tại
+      window.speechSynthesis.cancel();
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+
+      // Tạo utterance mới với tốc độ mới
+      const utterance = new SpeechSynthesisUtterance();
+      const fullText = title ? `${title}. ${text}` : text;
+      utterance.text = fullText;
+      utterance.lang = "vi-VN";
+      utterance.rate = newRate;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      // Ước tính lại thời lượng
+      const estimatedDuration = estimateDuration(fullText, newRate);
+      setDuration(estimatedDuration);
+
+      // Event handlers
+      utterance.onstart = () => {
+        setIsSpeaking(true);
+        setIsPaused(false);
+        intervalRef.current = setInterval(() => {
+          setCurrentTime(prev => prev + 0.1);
+        }, 100);
+      };
+
+      utterance.onend = () => {
+        setIsSpeaking(false);
+        setIsPaused(false);
+        setCurrentTime(0);
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      };
+
+      utterance.onerror = () => {
+        setIsSpeaking(false);
+        setIsPaused(false);
+        setCurrentTime(0);
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      };
+
+      utteranceRef.current = utterance;
+
+      // Chỉ phát lại nếu đang phát (không phải pause)
+      if (wasPlaying) {
+        window.speechSynthesis.speak(utterance);
+      } else {
+        setIsPaused(false);
+        setIsSpeaking(false);
+      }
+    }
   };
 
-  const handleStop = () => {
-    window.speechSynthesis.cancel();
-    setIsSpeaking(false);
-    setIsPaused(false);
-  };
+  const speedOptions = [0.5, 0.75, 1, 1.25, 1.5, 2];
 
   if (!isSupported) {
     return null; // Không hiển thị nếu browser không hỗ trợ
   }
 
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+
   return (
-    <div className="flex items-center gap-2">
-      {/* Nút Play/Stop chính */}
-      <Button
+    <div className="inline-flex items-center gap-3 rounded-full border border-red-200 bg-red-50/50 px-4 py-2.5">
+      {/* Play/Pause Button */}
+      <button
         onClick={handleSpeak}
-        size="sm"
-        variant={isSpeaking || isPaused ? "default" : "outline"}
-        className={
-          isSpeaking || isPaused
-            ? "border-[color:var(--vn-red-soft)] bg-[color:var(--vn-red-soft)] text-white hover:bg-[color:var(--vn-red-dark)]"
-            : "border-[color:var(--vn-red-soft)]/40 bg-transparent text-[color:var(--vn-red-soft)] hover:bg-[color:var(--vn-red-soft)] hover:text-white"
-        }
+        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-white transition-all hover:bg-red-700 active:scale-95"
       >
         {isSpeaking ? (
-          <>
-            <VolumeX className="mr-2 h-4 w-4" />
-            Dừng đọc
-          </>
-        ) : isPaused ? (
-          <>
-            <Play className="mr-2 h-4 w-4" />
-            Tiếp tục
-          </>
+          <Pause className="h-4 w-4" />
         ) : (
-          <>
-            <Volume2 className="mr-2 h-4 w-4" />
-            Đọc văn bản
-          </>
+          <Play className="h-4 w-4 ml-0.5" />
         )}
-      </Button>
+      </button>
 
-      {/* Nút Pause (chỉ hiện khi đang đọc) */}
-      {isSpeaking && !isPaused && (
-        <Button
-          onClick={handlePause}
-          size="sm"
-          variant="outline"
-          className="border-[color:var(--vn-yellow-soft)]/40 bg-transparent text-[color:var(--vn-yellow-soft)] hover:bg-[color:var(--vn-yellow-soft)] hover:text-black"
-        >
-          <Pause className="mr-2 h-4 w-4" />
-          Tạm dừng
-        </Button>
-      )}
+      {/* Current Time */}
+      <span className="text-sm font-medium text-red-600 min-w-[40px]">
+        {formatTime(currentTime)}
+      </span>
 
-      {/* Nút Stop (chỉ hiện khi đang đọc hoặc pause) */}
-      {(isSpeaking || isPaused) && (
-        <Button
-          onClick={handleStop}
-          size="sm"
-          variant="outline"
-          className="border-red-500/40 bg-transparent text-red-500 hover:bg-red-500 hover:text-white"
-        >
-          <Square className="mr-2 h-4 w-4" />
-          Dừng hẳn
-        </Button>
-      )}
+      {/* Progress Bar */}
+      <div className="relative h-1.5 w-36 overflow-hidden rounded-full bg-red-200/60">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-red-500 to-red-600 transition-all duration-100"
+          style={{ width: `${Math.min(progress, 100)}%` }}
+        />
+      </div>
+
+      {/* Duration */}
+      <span className="text-sm font-medium text-red-600 min-w-[40px]">
+        {formatTime(duration)}
+      </span>
+
+      {/* Speed Control */}
+      <div
+        className="relative"
+        onMouseEnter={() => {
+          if (speedTimeoutRef.current) {
+            clearTimeout(speedTimeoutRef.current);
+          }
+          setShowSpeedMenu(true);
+        }}
+        onMouseLeave={() => {
+          speedTimeoutRef.current = setTimeout(() => {
+            setShowSpeedMenu(false);
+          }, 300);
+        }}
+      >
+        <button className="rounded-lg border border-red-300 bg-white px-3 py-1 text-sm font-medium text-red-600 transition-all hover:bg-red-50">
+          {rate}x
+        </button>
+
+        {/* Speed Options Menu */}
+        {showSpeedMenu && (
+          <div
+            className="absolute top-full left-1/2 mt-2 -translate-x-1/2 rounded-lg border border-red-200 bg-white py-1 shadow-xl z-50"
+            onMouseEnter={() => {
+              if (speedTimeoutRef.current) {
+                clearTimeout(speedTimeoutRef.current);
+              }
+              setShowSpeedMenu(true);
+            }}
+            onMouseLeave={() => {
+              speedTimeoutRef.current = setTimeout(() => {
+                setShowSpeedMenu(false);
+              }, 300);
+            }}
+          >
+            {speedOptions.map((speed) => (
+              <button
+                key={speed}
+                onClick={() => handleRateChange(speed)}
+                className={`w-full px-4 py-2 text-left text-sm transition-colors hover:bg-red-50 ${speed === rate ? 'bg-red-100 font-semibold text-red-700' : 'text-gray-700'
+                  }`}
+              >
+                {speed}x
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
