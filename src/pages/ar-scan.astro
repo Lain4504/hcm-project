@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import qrHcm from '../assets/ar/ar_qr_code_hcm.png';
 import hcmImage from '../assets/ar/hcm_image.png';
+import hcmImage2 from '../assets/ar/hcm_image2 .png';
+import hcmImage3 from '../assets/ar/hcm_image3.png';
 import linhHonCachMangVietNam from "../assets/hq720.jpg";
 ---
 
@@ -181,20 +183,38 @@ import linhHonCachMangVietNam from "../assets/hq720.jpg";
       </div>
     </div>
 
-    <!-- Hình minh họa AR ở giữa màn hình -->
+    <!-- Nhóm hình minh họa các tranh có thể quét AR -->
     <div class="mx-auto max-w-6xl px-4 py-6">
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-full max-w-2xl overflow-hidden rounded-xl border-2 border-[color:var(--vn-red-soft)]/40 bg-black/20 shadow-xl">
-          <img
-            src={hcmImage.src}
-            alt="Minh họa video AR hiển thị chồng lên bức tranh sau khi quét bằng Artivive"
-            class="w-full h-auto object-contain max-h-[70vh]"
-            loading="lazy"
-          />
+      <div class="flex flex-col items-center gap-4">
+        <div class="grid w-full gap-4 md:grid-cols-3">
+          <div class="overflow-hidden rounded-xl border-2 border-[color:var(--vn-red-soft)]/40 bg-black/20 shadow-xl">
+            <img
+              src={hcmImage.src}
+              alt="Tranh 1 có hỗ trợ AR khi quét bằng Artivive"
+              class="w-full h-auto object-contain max-h-[70vh]"
+              loading="lazy"
+            />
+          </div>
+          <div class="overflow-hidden rounded-xl border-2 border-[color:var(--vn-red-soft)]/40 bg-black/20 shadow-xl">
+            <img
+              src={hcmImage2.src}
+              alt="Tranh 2 có hỗ trợ AR khi quét bằng Artivive"
+              class="w-full h-auto object-contain max-h-[70vh]"
+              loading="lazy"
+            />
+          </div>
+          <div class="overflow-hidden rounded-xl border-2 border-[color:var(--vn-red-soft)]/40 bg-black/20 shadow-xl">
+            <img
+              src={hcmImage3.src}
+              alt="Tranh 3 có hỗ trợ AR khi quét bằng Artivive"
+              class="w-full h-auto object-contain max-h-[70vh]"
+              loading="lazy"
+            />
+          </div>
         </div>
         <p class="text-center text-sm text-muted-foreground max-w-2xl">
-          Hình minh họa hiệu ứng AR: khi bạn dùng ứng dụng Artivive quét bức tranh, video sẽ được phủ lên chính bức tranh đó,
-          tạo cảm giác nội dung sống động ngay trong không gian thực.
+          Các tranh minh họa có hỗ trợ AR: dùng ứng dụng Artivive để quét đúng từng bức tranh trong triển lãm, video sẽ được phủ
+          lên chính hình bạn đang xem, tạo cảm giác nội dung sống động ngay trong không gian thực.
         </p>
       </div>
     </div>
