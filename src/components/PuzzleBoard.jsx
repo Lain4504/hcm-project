@@ -119,7 +119,7 @@ function PuzzleBoard({ puzzleInfo, image }) {
       <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between">
         <div className="space-y-1">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-[color:var(--vn-red-soft)]/80">
-            Mini-game lịch sử Việt Nam
+            Mini-game HCM202
           </p>
           <p className="text-sm text-muted-foreground max-w-xl">
             Nhấn vào các ô nằm cạnh ô trống để di chuyển mảnh ghép và hoàn thành bức tranh.
@@ -167,10 +167,10 @@ function PuzzleBoard({ puzzleInfo, image }) {
                 Bức hình
               </p>
               <h2 className="mt-1 text-lg font-bold text-[color:var(--vn-red-soft)]">
-                Hình ảnh lịch sử sẽ được mở khoá
+                Hình ảnh và chú thích sẽ được mở khoá
               </h2>
               <p className="mt-2 text-xs text-muted-foreground">
-                Hoàn thành puzzle để xem đầy đủ tiêu đề và mô tả chi tiết về bức ảnh này.
+                Hoàn thành puzzle để xem tiêu đề và chú thích nội dung HCM202 gắn với bức ảnh.
               </p>
             </div>
 

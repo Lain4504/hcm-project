@@ -13,7 +13,7 @@ export const ARViewer: React.FC<ARViewerProps> = ({ src, poster, title }) => {
       <model-viewer
         src={src}
         poster={poster}
-        alt={title || "Mô hình 3D Điện Biên Phủ"}
+        alt={title || "Mô hình 3D chủ đề HCM202"}
         ar
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
